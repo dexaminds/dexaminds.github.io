@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /404
+Disallow: /admin
+Disallow: /private
+Disallow: /api
+
+# Host
+Host: https://dexaminds.com
+
+# Sitemaps
+Sitemap: https://dexaminds.com/sitemap.xml

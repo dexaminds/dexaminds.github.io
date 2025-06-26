@@ -11,37 +11,37 @@ theme:
 nav:
   - Home: index.md
   - Engineering Handbook:
-      - Overview: engineering-handbook/README.md
-      - Coding Standards:
-          - JavaScript: engineering-handbook/coding-standards/javascript.md
-          - Python: engineering-handbook/coding-standards/python.md
-      - Development Practices:
-          - Git Workflow: engineering-handbook/development-practices/git-workflow.md
-          - Testing Strategy: engineering-handbook/development-practices/testing-strategy.md
-      - Team Culture:
-          - Communication: engineering-handbook/team-culture/communication.md
-          - Code of Conduct: engineering-handbook/team-culture/code-of-conduct.md
-      - Career Growth:
-          - Leveling Framework: engineering-handbook/career-growth/leveling-framework.md
-          - Mentorship: engineering-handbook/career-growth/mentorship.md
+    - Overview: engineering-handbook/README.md
+    - Coding Standards:
+      - JavaScript: engineering-handbook/coding-standards/javascript.md
+      - Python: engineering-handbook/coding-standards/python.md
+    - Development Practices:
+      - Git Workflow: engineering-handbook/development-practices/git-workflow.md
+      - Testing Strategy: engineering-handbook/development-practices/testing-strategy.md
+    - Team Culture:
+      - Communication: engineering-handbook/team-culture/communication.md
+      - Code of Conduct: engineering-handbook/team-culture/code-of-conduct.md
+    - Career Growth:
+      - Leveling Framework: engineering-handbook/career-growth/leveling-framework.md
+      - Mentorship: engineering-handbook/career-growth/mentorship.md
   - API Guidelines:
-      - Overview: api-guidelines/README.md
-      - REST: api-guidelines/rest-guidelines.md
-      - GraphQL: api-guidelines/graphql-guidelines.md
-      - Versioning: api-guidelines/versioning.md
-      - Error Handling: api-guidelines/error-handling.md
-      - Security: api-guidelines/security.md
+    - Overview: api-guidelines/README.md
+    - REST: api-guidelines/rest-guidelines.md
+    - GraphQL: api-guidelines/graphql-guidelines.md
+    - Versioning: api-guidelines/versioning.md
+    - Error Handling: api-guidelines/error-handling.md
+    - Security: api-guidelines/security.md
   - Internal Docs:
-      - Overview: internal-docs/README.md
-      - Onboarding:
-          - New Developer Guide: internal-docs/onboarding/new-developer-guide.md
-          - Tools and Access: internal-docs/onboarding/tools-and-access.md
-      - Processes:
-          - Code Review: internal-docs/processes/code-review-guidelines.md
-          - Deployment: internal-docs/processes/deployment-process.md
-      - Architecture:
-          - System Overview: internal-docs/architecture/system-overview.md
-          - Microservices Map: internal-docs/architecture/microservices-map.md
-      - Tutorials:
-          - Setup Local Env: internal-docs/tutorials/setup-local-env.md
-          - Debugging Issues: internal-docs/tutorials/debugging-common-issues.md
+    - Overview: internal-docs/README.md
+    - Onboarding:
+      - New Developer Guide: internal-docs/onboarding/new-developer-guide.md
+      - Tools and Access: internal-docs/onboarding/tools-and-access.md
+    - Processes:
+      - Code Review: internal-docs/processes/code-review-guidelines.md
+      - Deployment: internal-docs/processes/deployment-process.md
+    - Architecture:
+      - System Overview: internal-docs/architecture/system-overview.md
+      - Microservices Map: internal-docs/architecture/microservices-map.md
+    - Tutorials:
+      - Setup Local Env: internal-docs/tutorials/setup-local-env.md
+      - Debugging Issues: internal-docs/tutorials/debugging-common-issues.md

@@ -1,6 +1,15 @@
 site_name: Dexaminds Engineering Handbook
+site_url: https://dexaminds.github.io/
+repo_url: https://github.com/dexaminds/dexaminds.github.io
+edit_uri: edit/main/docs/
+
 theme:
   name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+
 nav:
   - Home: index.md
   - Team Culture:

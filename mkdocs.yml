@@ -1,0 +1,45 @@
+site_name: Dexaminds Documentation
+site_url: https://dexaminds.github.io/
+theme:
+  name: material
+
+docs_dir: docs
+
+nav:
+  - Home: index.md
+
+  - Internal Docs:
+      - Onboarding:
+          - New Developer Guide: docs/onboarding/new-developer-guide.md
+          - Tools and Access: docs/onboarding/tools-and-access.md
+      - Processes:
+          - Code Review Guidelines: docs/processes/code-review-guidelines.md
+          - Deployment Process: docs/processes/deployment-process.md
+      - Architecture:
+          - System Overview: docs/architecture/system-overview.md
+          - Microservices Map: docs/architecture/microservices-map.md
+      - Tutorials:
+          - Setup Local Environment: docs/tutorials/setup-local-env.md
+          - Debugging Common Issues: docs/tutorials/debugging-common-issues.md
+
+  - Engineering Handbook:
+      - Coding Standards:
+          - JavaScript: engineering-handbook/coding-standards/javascript.md
+          - Python: engineering-handbook/coding-standards/python.md
+      - Development Practices:
+          - Git Workflow: engineering-handbook/development-practices/git-workflow.md
+          - Testing Strategy: engineering-handbook/development-practices/testing-strategy.md
+      - Team Culture:
+          - Communication: engineering-handbook/team-culture/communication.md
+          - Code of Conduct: engineering-handbook/team-culture/code-of-conduct.md
+      - Career Growth:
+          - Leveling Framework: engineering-handbook/career-growth/leveling-framework.md
+          - Mentorship: engineering-handbook/career-growth/mentorship.md
+
+  - API Guidelines:
+      - Design Principles: api-guidelines/design-principles.md
+      - REST Guidelines: api-guidelines/rest-guidelines.md
+      - GraphQL Guidelines: api-guidelines/graphql-guidelines.md
+      - Versioning: api-guidelines/versioning.md
+      - Error Handling: api-guidelines/error-handling.md
+      - Security: api-guidelines/security.md

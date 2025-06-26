@@ -5,6 +5,6 @@ Welcome to the internal engineering knowledge base.
 ## 📚 Sections
 
 
-- [Internal Docs](docs/)
+- [Internal Docs](internal-docs/)
 - [Engineering Handbook](engineering-handbook/)
 - [API Guidelines](api-guidelines/)

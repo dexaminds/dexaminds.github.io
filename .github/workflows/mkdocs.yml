@@ -1,4 +1,4 @@
-name: Build and Deploy Docs
+name: Build and Deploy MkDocs (SSH)
 
 on:
   push:
@@ -9,11 +9,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GH_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
       - name: Checkout repo with submodules
         uses: actions/checkout@v3
         with:
           submodules: recursive
-          token: ${{ secrets.GITHUB_TOKEN }}
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -23,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: pip install mkdocs mkdocs-material
 
-      - name: Build and deploy
+      - name: Build and Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

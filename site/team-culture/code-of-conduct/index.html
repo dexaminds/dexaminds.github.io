@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Code of Conduct - Dexaminds Engineering Handbook</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Dexaminds Engineering Handbook</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Coding Standards</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../coding-standards/python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../coding-standards/javascript/" class="dropdown-item">JavaScript</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development Practices</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../development-practices/git-workflow/" class="dropdown-item">Git Workflow</a>
+</li>
+                                    
+<li>
+    <a href="../../development-practices/testing-strategy/" class="dropdown-item">Testing Strategy</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Team Culture</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Code of Conduct</a>
+</li>
+                                    
+<li>
+    <a href="../communication/" class="dropdown-item">Communication</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Career Growth</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../career-growth/mentorship/" class="dropdown-item">Mentorship</a>
+</li>
+                                    
+<li>
+    <a href="../../career-growth/leveling-framework/" class="dropdown-item">Leveling Framework</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../development-practices/testing-strategy/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../communication/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#code-of-conduct" class="nav-link">Code of Conduct</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#our-commitment" class="nav-link">Our Commitment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#expected-standards-of-behavior" class="nav-link">Expected Standards of Behavior</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#unacceptable-behavior" class="nav-link">Unacceptable Behavior</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#reporting-violations" class="nav-link">Reporting Violations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#our-pledge-to-evolve" class="nav-link">Our Pledge to Evolve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="code-of-conduct">Code of Conduct</h1>
+<p>At DexaMinds, we believe that great products emerge not only from brilliant ideas and skillful engineering but from a culture rooted in integrity, respect, and collaboration. Our Code of Conduct sets the standard for how we work, communicate, and grow together — as individuals and as a collective striving toward innovation with impact.</p>
+<h2 id="our-commitment">Our Commitment</h2>
+<p>We are committed to building an inclusive and inspiring workplace — one where creativity is celebrated, collaboration is second nature, and diversity of thought fuels our collective intelligence.</p>
+<ul>
+<li>We prioritize <strong>respect, transparency, and empathy</strong> in all interactions.</li>
+<li>We foster a culture where <strong>psychological safety and open dialogue</strong> enable everyone to speak up, take risks, and challenge the status quo.</li>
+<li>We hold ourselves accountable for ensuring a <strong>safe, equitable, and empowering environment</strong> for all team members, partners, and contributors.</li>
+</ul>
+<h2 id="expected-standards-of-behavior">Expected Standards of Behavior</h2>
+<p>DexaMinds employees, contractors, and community participants are expected to embody these standards at all times:</p>
+<h3 id="respect-and-inclusion">🤝 Respect and Inclusion</h3>
+<ul>
+<li>Embrace diverse perspectives, experiences, and cultural backgrounds.</li>
+<li>Practice active listening and seek to understand before responding.</li>
+<li>Avoid assumptions; engage with humility and curiosity.</li>
+</ul>
+<h3 id="growth-and-learning">🌱 Growth and Learning</h3>
+<ul>
+<li>Provide and welcome constructive feedback generously and gracefully.</li>
+<li>Celebrate progress — both individual and team — no matter how small.</li>
+<li>Be open to evolving your views through dialogue, mentorship, and learning.</li>
+</ul>
+<h3 id="integrity-and-responsibility">🔍 Integrity and Responsibility</h3>
+<ul>
+<li>Do what’s right, not what’s easy — even when no one is watching.</li>
+<li>Own your outcomes. Admit mistakes and treat them as growth moments.</li>
+<li>Respect the confidentiality of sensitive information and decisions.</li>
+</ul>
+<h3 id="collaboration-and-innovation">🧠 Collaboration and Innovation</h3>
+<ul>
+<li>Be a multiplier: lift others up, share knowledge, and help ideas flourish.</li>
+<li>Collaborate with purpose — align on goals, communicate clearly, and deliver with intent.</li>
+<li>Take initiative, challenge assumptions, and experiment with courage.</li>
+</ul>
+<h2 id="unacceptable-behavior">Unacceptable Behavior</h2>
+<p>The following behaviors are strictly prohibited and will not be tolerated:</p>
+<ul>
+<li>Harassment, discrimination, or microaggressions based on race, gender, sexual orientation, disability, or any protected characteristic.</li>
+<li>Bullying, intimidation, or intentional disruption of professional environments.</li>
+<li>Spreading misinformation or engaging in deceitful practices.</li>
+<li>Repeated disrespect of personal boundaries or professional expectations.</li>
+</ul>
+<h2 id="reporting-violations">Reporting Violations</h2>
+<p>If you witness or experience any behavior that contradicts this Code, we encourage you to speak up. You can report concerns to:</p>
+<ul>
+<li>Your direct manager or mentor</li>
+<li>The People Operations team at <code>people@dexaminds.com</code></li>
+<li>Or use our confidential reporting channel: <code>ethics@dexaminds.com</code></li>
+</ul>
+<p>Reports are treated with strict confidentiality. We are committed to fair investigation and protection from retaliation.</p>
+<h2 id="our-pledge-to-evolve">Our Pledge to Evolve</h2>
+<p>Culture is a living system. As DexaMinds grows, so will our standards and practices. We actively revisit and refine our Code of Conduct to reflect our mission:</p>
+<blockquote>
+<p><strong>“To empower visionary minds and distributed teams to create lasting technological impact by harmonizing intelligence, empathy, and execution.”</strong></p>
+</blockquote>
+<p>Let this Code serve as both a compass and a commitment — to lead with purpose, create with passion, and build with people at the center.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

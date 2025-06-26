@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Git Workflow - Dexaminds Engineering Handbook</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Dexaminds Engineering Handbook</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Coding Standards</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../coding-standards/python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../coding-standards/javascript/" class="dropdown-item">JavaScript</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development Practices</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Git Workflow</a>
+</li>
+                                    
+<li>
+    <a href="../testing-strategy/" class="dropdown-item">Testing Strategy</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Team Culture</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../team-culture/code-of-conduct/" class="dropdown-item">Code of Conduct</a>
+</li>
+                                    
+<li>
+    <a href="../../team-culture/communication/" class="dropdown-item">Communication</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Career Growth</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../career-growth/mentorship/" class="dropdown-item">Mentorship</a>
+</li>
+                                    
+<li>
+    <a href="../../career-growth/leveling-framework/" class="dropdown-item">Leveling Framework</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../coding-standards/javascript/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../testing-strategy/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#dexaminds-git-github-training-guide-using-git-bash" class="nav-link">🧠 DexaMinds Git &amp; GitHub Training Guide (Using Git Bash)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="dexaminds-git-github-training-guide-using-git-bash">🧠 DexaMinds Git &amp; GitHub Training Guide (Using Git Bash)</h2>
+<h3 id="1-initial-setup">🔧 1. Initial Setup</h3>
+<h4 id="install-git">✅ Install Git</h4>
+<ul>
+<li>Download from: https://git-scm.com/downloads</li>
+</ul>
+<h4 id="configure-git">✅ Configure Git</h4>
+<pre><code class="language-bash">git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;your.email@dexaminds.com&quot;
+git config --global core.editor &quot;code --wait&quot;  # Optional: Set VS Code as default editor
+</code></pre>
+<h4 id="verify-configuration">✅ Verify Configuration</h4>
+<pre><code class="language-bash">git config --list
+</code></pre>
+<hr />
+<h3 id="2-repository-management">📁 2. Repository Management</h3>
+<h4 id="clone-a-repository">✅ Clone a Repository</h4>
+<pre><code class="language-bash">git clone https://github.com/your-org/repo-name.git
+</code></pre>
+<h4 id="create-a-new-repository-local">✅ Create a New Repository (Local)</h4>
+<pre><code class="language-bash">mkdir my-project
+cd my-project
+git init
+</code></pre>
+<h4 id="link-to-remote-repository">✅ Link to Remote Repository</h4>
+<pre><code class="language-bash">git remote add origin https://github.com/your-org/repo-name.git
+git push -u origin main
+</code></pre>
+<h4 id="delete-a-local-repository">❌ Delete a Local Repository</h4>
+<pre><code class="language-bash">rm -rf my-project
+</code></pre>
+<hr />
+<h3 id="3-branching-operations">🌿 3. Branching Operations</h3>
+<h4 id="create-a-new-branch">✅ Create a New Branch</h4>
+<pre><code class="language-bash">git checkout -b feature/branch-name
+</code></pre>
+<h4 id="switch-between-branches">🔁 Switch Between Branches</h4>
+<pre><code class="language-bash">git checkout main
+</code></pre>
+<h4 id="merge-a-branch">🔀 Merge a Branch</h4>
+<pre><code class="language-bash">git checkout main
+git merge feature/branch-name
+</code></pre>
+<h4 id="delete-a-branch">❌ Delete a Branch</h4>
+<pre><code class="language-bash">git branch -d feature/branch-name       # Safe delete
+git branch -D feature/branch-name       # Force delete
+</code></pre>
+<hr />
+<h3 id="4-commit-workflow">🔁 4. Commit Workflow</h3>
+<p>This section outlines the <strong>standard Git commit workflow</strong> that every developer at DexaMinds should follow:</p>
+<h4 id="step-by-step-commit-workflow">🧭 Step-by-Step Commit Workflow</h4>
+<ol>
+<li>
+<p><strong>Pull latest changes</strong> from the remote branch:
+   <code>bash
+   git pull origin branch-name</code></p>
+</li>
+<li>
+<p><strong>Check status</strong> of your working directory:
+   <code>bash
+   git status</code></p>
+</li>
+<li>
+<p><strong>Stage the changes</strong> you want to commit:
+   <code>bash
+   git add file-name         # Add specific file
+   git add .                 # Add all changes</code></p>
+</li>
+<li>
+<p><strong>Review staged changes</strong> (optional but recommended):
+   <code>bash
+   git diff --cached</code></p>
+</li>
+<li>
+<p><strong>Commit with a meaningful message</strong>:
+   <code>bash
+   git commit -m "feat: add login validation for user form"</code></p>
+</li>
+<li>
+<p><strong>Push your changes</strong> to the remote branch:
+   <code>bash
+   git push origin branch-name</code></p>
+</li>
+<li>
+<p><strong>Create a Pull Request</strong> on GitHub and request review.</p>
+</li>
+</ol>
+<hr />
+<h3 id="5-working-with-pull-requests-prs">🔍 5. Working with Pull Requests (PRs)</h3>
+<h4 id="create-a-pr">✅ Create a PR</h4>
+<ol>
+<li>Push your branch to GitHub.</li>
+<li>Go to GitHub → Open your repo → Click <strong>"Compare &amp; pull request"</strong>.</li>
+<li>Add title, description, reviewers, and submit.</li>
+</ol>
+<h4 id="review-a-pr">✅ Review a PR</h4>
+<ul>
+<li>Use GitHub UI to comment, approve, or request changes.</li>
+</ul>
+<h4 id="merge-a-pr">✅ Merge a PR</h4>
+<ul>
+<li>After approval, click <strong>"Merge pull request"</strong> on GitHub.</li>
+</ul>
+<hr />
+<h3 id="6-best-practices">🧪 6. Best Practices</h3>
+<ul>
+<li>Use meaningful branch names: <code>feature/login-page</code>, <code>fix/api-error</code></li>
+<li>Commit often with clear messages.</li>
+<li>Always pull before pushing.</li>
+<li>Delete merged branches to keep repo clean.</li>
+<li>Use <code>.gitignore</code> to avoid committing unnecessary files.</li>
+</ul>
+<hr />
+<h3 id="common-git-commands-cheat-sheet">🛠️ Common Git Commands Cheat Sheet</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initialize repo</td>
+<td><code>git init</code></td>
+</tr>
+<tr>
+<td>Clone repo</td>
+<td><code>git clone &lt;url&gt;</code></td>
+</tr>
+<tr>
+<td>Check status</td>
+<td><code>git status</code></td>
+</tr>
+<tr>
+<td>Stage file</td>
+<td><code>git add file-name</code></td>
+</tr>
+<tr>
+<td>Stage all</td>
+<td><code>git add .</code></td>
+</tr>
+<tr>
+<td>Unstage file</td>
+<td><code>git reset file-name</code></td>
+</tr>
+<tr>
+<td>Commit</td>
+<td><code>git commit -m "message"</code></td>
+</tr>
+<tr>
+<td>Amend last commit</td>
+<td><code>git commit --amend</code></td>
+</tr>
+<tr>
+<td>View commit history</td>
+<td><code>git log</code></td>
+</tr>
+<tr>
+<td>View one-line log</td>
+<td><code>git log --oneline</code></td>
+</tr>
+<tr>
+<td>Create branch</td>
+<td><code>git checkout -b branch-name</code></td>
+</tr>
+<tr>
+<td>Switch branch</td>
+<td><code>git checkout branch-name</code></td>
+</tr>
+<tr>
+<td>Delete branch</td>
+<td><code>git branch -d branch-name</code></td>
+</tr>
+<tr>
+<td>Merge branch</td>
+<td><code>git merge branch-name</code></td>
+</tr>
+<tr>
+<td>Pull changes</td>
+<td><code>git pull origin branch-name</code></td>
+</tr>
+<tr>
+<td>Push changes</td>
+<td><code>git push origin branch-name</code></td>
+</tr>
+<tr>
+<td>View remote</td>
+<td><code>git remote -v</code></td>
+</tr>
+<tr>
+<td>Add remote</td>
+<td><code>git remote add origin &lt;url&gt;</code></td>
+</tr>
+<tr>
+<td>Remove remote</td>
+<td><code>git remote remove origin</code></td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

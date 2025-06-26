@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>JavaScript - Dexaminds Engineering Handbook</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Dexaminds Engineering Handbook</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Coding Standards</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">JavaScript</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development Practices</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../development-practices/git-workflow/" class="dropdown-item">Git Workflow</a>
+</li>
+                                    
+<li>
+    <a href="../../development-practices/testing-strategy/" class="dropdown-item">Testing Strategy</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Team Culture</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../team-culture/code-of-conduct/" class="dropdown-item">Code of Conduct</a>
+</li>
+                                    
+<li>
+    <a href="../../team-culture/communication/" class="dropdown-item">Communication</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Career Growth</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../career-growth/mentorship/" class="dropdown-item">Mentorship</a>
+</li>
+                                    
+<li>
+    <a href="../../career-growth/leveling-framework/" class="dropdown-item">Leveling Framework</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../python/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../development-practices/git-workflow/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#javascript-coding-standards-dexaminds" class="nav-link">💻 JavaScript Coding Standards (DexaMinds)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="javascript-coding-standards-dexaminds">💻 JavaScript Coding Standards (DexaMinds)</h2>
+<h3 id="1-general-guidelines">1. General Guidelines</h3>
+<ul>
+<li>Follow the <a href="https://github.com/airbnb/javascript">Airbnb Style Guide</a></li>
+<li>Use <code>const</code> and <code>let</code> (avoid <code>var</code>)</li>
+<li>Prefer modern ES6+ features</li>
+</ul>
+<h3 id="2-file-and-variable-naming">2. File and Variable Naming</h3>
+<ul>
+<li>Use <code>camelCase</code> for variables/functions</li>
+<li>Use <code>PascalCase</code> for components/classes</li>
+<li>File names: <code>kebab-case.js</code> (e.g., <code>user-profile.js</code>)</li>
+</ul>
+<h3 id="3-formatting">3. Formatting</h3>
+<ul>
+<li>2-space indentation</li>
+<li>Always use semicolons</li>
+<li>Prefer single quotes</li>
+<li>Use trailing commas in multi-line objects/arrays</li>
+</ul>
+<pre><code class="language-js">const user = {
+  name: 'Alice',
+  age: 30,
+};
+</code></pre>
+<h3 id="4-functions">4. Functions</h3>
+<ul>
+<li>Use arrow functions for anonymous and short functions</li>
+</ul>
+<pre><code class="language-js">const greet = name =&gt; `Hello, ${name}`;
+</code></pre>
+<ul>
+<li>Avoid deeply nested callbacks (prefer async/await or Promises)</li>
+</ul>
+<h3 id="5-comments-documentation">5. Comments &amp; Documentation</h3>
+<ul>
+<li>Use <code>//</code> for single-line, <code>/** */</code> for multi-line</li>
+<li>Use JSDoc for public functions</li>
+</ul>
+<pre><code class="language-js">/**
+ * Calculate sum of two numbers.
+ * @param {number} a - First number
+ * @param {number} b - Second number
+ * @returns {number}
+ */
+function add(a, b) {
+  return a + b;
+}
+</code></pre>
+<h3 id="6-objects-arrays">6. Objects &amp; Arrays</h3>
+<ul>
+<li>Use destructuring where appropriate</li>
+</ul>
+<pre><code class="language-js">const { name, age } = user;
+</code></pre>
+<ul>
+<li>Avoid mutation — prefer immutable updates</li>
+</ul>
+<h3 id="7-error-handling">7. Error Handling</h3>
+<ul>
+<li>Store constants and helper functions in their own files</li>
+</ul>
+<h3 id="8-state-management">8. State Management</h3>
+<ul>
+<li>Use state management libraries (Redux, Context API) for global state</li>
+<li>Keep state as local as possible, lift state up when needed</li>
+</ul>
+<h3 id="9-performance-optimization">9. Performance Optimization</h3>
+<ul>
+<li>Use <code>useMemo</code> and <code>useCallback</code> for expensive calculations and callbacks</li>
+<li>Implement code splitting for large applications</li>
+<li>Use <code>React.memo</code> for preventing unnecessary re-renders</li>
+</ul>
+<h3 id="10-security-practices">10. Security Practices</h3>
+<ul>
+<li>Sanitize all user inputs</li>
+<li>Use environment variables for sensitive data</li>
+<li>Implement proper CORS policies</li>
+<li>Use Content Security Policy (CSP) headers</li>
+</ul>
+<h3 id="11-testing">11. Testing</h3>
+<ul>
+<li>Write unit tests with Jest</li>
+<li>Aim for 80%+ test coverage</li>
+<li>Test user interactions with React Testing Library</li>
+</ul>
+<h3 id="12-error-boundaries">12. Error Boundaries</h3>
+<ul>
+<li>Implement error boundaries to catch JavaScript errors</li>
+<li>Provide fallback UIs for better user experience</li>
+</ul>
+<h3 id="13-accessibility-a11y">13. Accessibility (a11y)</h3>
+<ul>
+<li>Use semantic HTML elements</li>
+<li>Add proper ARIA attributes</li>
+<li>Ensure keyboard navigation works</li>
+<li>Test with screen readers</li>
+</ul>
+<h3 id="14-code-organization">14. Code Organization</h3>
+<ul>
+<li>Follow the "Feature First" folder structure</li>
+<li>Keep related files together (component + styles + tests)</li>
+<li>Separate business logic from UI components</li>
+</ul>
+<h3 id="15-performance-monitoring">15. Performance Monitoring</h3>
+<ul>
+<li>Implement error tracking (Sentry, LogRocket)</li>
+<li>Monitor Core Web Vitals</li>
+<li>Use React DevTools Profiler</li>
+</ul>
+<h3 id="16-internationalization-i18n">16. Internationalization (i18n)</h3>
+<ul>
+<li>Externalize all UI strings</li>
+<li>Use libraries like react-i18next</li>
+<li>Consider RTL (Right-to-Left) layouts</li>
+</ul>
+<h3 id="17-code-reviews">17. Code Reviews</h3>
+<ul>
+<li>Keep PRs small and focused</li>
+<li>Include screenshots for UI changes</li>
+<li>Address all review comments before merging</li>
+<li>Use meaningful commit messages</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

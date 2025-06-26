@@ -1,5 +1,6 @@
 site_name: Dexaminds Docs
 repo_url: https://github.com/dexaminds/dexaminds.github.io
+
 theme:
   name: material
   language: en
@@ -31,7 +32,7 @@ nav:
       - Error Handling: api-guidelines/error-handling.md
       - Security: api-guidelines/security.md
   - Internal Docs:
-  - Overview: internal-docs/README.md
+      - Overview: internal-docs/README.md
       - Onboarding:
           - New Developer Guide: internal-docs/onboarding/new-developer-guide.md
           - Tools and Access: internal-docs/onboarding/tools-and-access.md

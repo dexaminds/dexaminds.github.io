@@ -1,0 +1,9 @@
+[submodule "docs/engineering-handbook"]
+	path = docs/engineering-handbook
+	url = git@github.com-dexaminds:dexaminds/engineering-handbook.git
+[submodule "docs/api-guidelines"]
+	path = docs/api-guidelines
+	url = git@github.com-dexaminds:dexaminds/api-guidelines.git
+[submodule "docs/internal-docs"]
+	path = docs/internal-docs
+	url = git@github.com-dexaminds:dexaminds/docs.git

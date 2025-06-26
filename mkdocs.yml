@@ -1,0 +1,24 @@
+site_name: Dexaminds Engineering Handbook
+site_url: https://dexaminds.github.io/
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - content.code.annotate
+    - content.code.copy
+nav:
+  - Home: index.md
+  - Engineering Handbook:
+      - Culture: handbook/team-culture/code-of-conduct.md
+      - Communication: handbook/team-culture/communication.md
+      - Coding Standards:
+          - Python: handbook/coding-standards/python.md
+          - JavaScript: handbook/coding-standards/javascript.md
+      - Development:
+          - Git Workflow: handbook/development-practices/git-workflow.md
+          - Testing: handbook/development-practices/testing-strategy.md
+      - Career:
+          - Mentorship: handbook/career-growth/mentorship.md
+          - Leveling: handbook/career-growth/leveling-framework.md

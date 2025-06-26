@@ -9,29 +9,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up SSH for private submodules
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.GH_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git config --global url."git@github.com:".insteadOf "https://github.com/"
-
-      - name: Checkout repository with submodules (using SSH)
+      - name: Checkout the repo without submodules (initial)
         uses: actions/checkout@v3
         with:
-          submodules: recursive
+          submodules: false
           persist-credentials: false
+
+      - name: Set up SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GH_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_rsa
+          git config --global url."git@github.com:".insteadOf "https://github.com/"
+
+      - name: Initialize and update submodules (manually via SSH)
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive --depth=1
 
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Install MkDocs and Material theme
+      - name: Install dependencies
         run: pip install mkdocs mkdocs-material
 
-      - name: Build the site
+      - name: Build site
         run: mkdocs build
 
       - name: Deploy to GitHub Pages

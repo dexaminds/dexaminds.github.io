@@ -3,15 +3,18 @@ docs_dir: handbook
 
 nav:
   - Home: index.md
+  - Team Culture:
+      - Code of Conduct: team-culture/code-of-conduct.md
+      - Communication: team-culture/communication.md
   - Coding Standards:
       - Python: coding-standards/python.md
       - JavaScript: coding-standards/javascript.md
   - Development Practices:
       - Git Workflow: development-practices/git-workflow.md
       - Testing Strategy: development-practices/testing-strategy.md
-  - Team Culture:
-      - Code of Conduct: team-culture/code-of-conduct.md
-      - Communication: team-culture/communication.md
   - Career Growth:
       - Mentorship: career-growth/mentorship.md
       - Leveling Framework: career-growth/leveling-framework.md
+
+theme:
+  name: material

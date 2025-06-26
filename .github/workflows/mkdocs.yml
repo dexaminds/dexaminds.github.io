@@ -1,50 +1,30 @@
-name: Build and Deploy MkDocs
+name: Deploy MkDocs to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the repo without submodules (initial)
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          submodules: false
-          persist-credentials: false
+          submodules: recursive
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
 
-      - name: Set up SSH
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.GH_SSH_KEY }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          eval "$(ssh-agent -s)"
-          ssh-add ~/.ssh/id_rsa
-          git config --global url."git@github.com:".insteadOf "https://github.com/"
-
-      - name: Initialize and update submodules (manually via SSH)
-        run: |
-          git submodule sync --recursive
-          git submodule update --init --recursive --depth=1
-
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install mkdocs mkdocs-material
+        run: |
+          pip install mkdocs mkdocs-material
 
-      - name: Build site
-        run: mkdocs build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+      - name: Build and deploy
+        run: |
+          mkdocs gh-deploy --force

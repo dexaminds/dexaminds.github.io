@@ -1,4 +1,4 @@
-name: Deploy Handbook to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -7,19 +7,22 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -28,23 +31,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build site
+      - name: Build with MkDocs
         run: mkdocs build --strict
 
-      - name: Upload Pages artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: site/
-          retention-days: 1
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./site
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v2

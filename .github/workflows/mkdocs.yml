@@ -9,29 +9,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up SSH
+      - name: Setup SSH Key for Submodule Access
+        env:
+          SSH_KEY: ${{ secrets.GH_SSH_KEY }}
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.GH_SSH_KEY }}" > ~/.ssh/id_rsa
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global url."git@github.com:".insteadOf "https://github.com/"
 
-      - name: Checkout repository with submodules (via SSH)
+      - name: Checkout repo and submodules using SSH
         uses: actions/checkout@v3
         with:
           submodules: recursive
-          ssh-key: ${{ secrets.GH_SSH_KEY }}
+          persist-credentials: false
 
-      - name: Set GIT_SSH_COMMAND
-        run: |
-          echo "GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no'" >> $GITHUB_ENV
-
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Install MkDocs dependencies
+      - name: Install dependencies
         run: pip install mkdocs mkdocs-material
 
       - name: Build site

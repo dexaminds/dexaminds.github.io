@@ -1,20 +1,17 @@
 site_name: Dexaminds Engineering Handbook
-docs_dir: handbook
-
+theme:
+  name: material
 nav:
   - Home: index.md
   - Team Culture:
-      - Code of Conduct: team-culture/code-of-conduct.md
-      - Communication: team-culture/communication.md
+      - Code of Conduct: handbook/team-culture/code-of-conduct.md
+      - Communication: handbook/team-culture/communication.md
   - Coding Standards:
-      - Python: coding-standards/python.md
-      - JavaScript: coding-standards/javascript.md
+      - Python: handbook/coding-standards/python.md
+      - JavaScript: handbook/coding-standards/javascript.md
   - Development Practices:
-      - Git Workflow: development-practices/git-workflow.md
-      - Testing Strategy: development-practices/testing-strategy.md
+      - Git Workflow: handbook/development-practices/git-workflow.md
+      - Testing Strategy: handbook/development-practices/testing-strategy.md
   - Career Growth:
-      - Mentorship: career-growth/mentorship.md
-      - Leveling Framework: career-growth/leveling-framework.md
-
-theme:
-  name: material
+      - Leveling Framework: handbook/career-growth/leveling-framework.md
+      - Mentorship: handbook/career-growth/mentorship.md

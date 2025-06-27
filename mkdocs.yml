@@ -35,9 +35,9 @@ nav:
   - Internal Docs:
     - Overview: internal-docs/README.md
     - Onboarding:
-    - Overview: internal-docs/onboarding/README.md
-      - New Developer Guide: /onboarding/new-developer-guide.md
-      - Tools and Access: /onboarding/tools-and-access.md
+      - Overview: internal-docs/onboarding/README.md
+        - New Developer Guide: /onboarding/new-developer-guide.md
+        - Tools and Access: /onboarding/tools-and-access.md
     - Processes:
       - Code Review: /processes/code-review-guidelines.md
       - Deployment: /processes/deployment-process.md

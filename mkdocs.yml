@@ -36,11 +36,11 @@ nav:
     - Overview: internal-docs/README.md
     - Onboarding:
       - Overview: internal-docs/onboarding/README.md
-        - New Developer Guide: /onboarding/new-developer-guide.md
-        - Tools and Access: /onboarding/tools-and-access.md
+      - New Developer Guide: internal-docs/onboarding/new-developer-guide.md
+      - Tools and Access: internal-docs/onboarding/tools-and-access.md
     - Processes:
-      - Code Review: /processes/code-review-guidelines.md
-      - Deployment: /processes/deployment-process.md
+      - Code Review: internal-docs/processes/code-review-guidelines.md
+      - Deployment: internal-docs/processes/deployment-process.md
     - Architecture:
       - System Overview: internal-docs/architecture/system-overview.md
       - Microservices Map: internal-docs/architecture/microservices-map.md

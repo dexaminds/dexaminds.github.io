@@ -2,36 +2,54 @@ site_name: Dexaminds Docs
 repo_url: https://github.com/dexaminds/dexaminds.github.io
 docs_dir: docs
 
+# Theme configuration
 theme:
   name: material
   language: en
   palette:
     primary: blue
     accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
 
+# Navigation
 nav:
   - Home: index.md
+  
+  # Engineering Handbook Section
   - Engineering Handbook:
     - Overview: engineering-handbook/README.md
     - Coding Standards:
+      - Overview: engineering-handbook/coding-standards/README.md
       - JavaScript: engineering-handbook/coding-standards/javascript.md
       - Python: engineering-handbook/coding-standards/python.md
     - Development Practices:
+      - Overview: engineering-handbook/development-practices/README.md
       - Git Workflow: engineering-handbook/development-practices/git-workflow.md
       - Testing Strategy: engineering-handbook/development-practices/testing-strategy.md
     - Team Culture:
-      - Communication: engineering-handbook/team-culture/communication.md
+      - Overview: engineering-handbook/team-culture/README.md
       - Code of Conduct: engineering-handbook/team-culture/code-of-conduct.md
+      - Communication: engineering-handbook/team-culture/communication.md
     - Career Growth:
+      - Overview: engineering-handbook/career-growth/README.md
       - Leveling Framework: engineering-handbook/career-growth/leveling-framework.md
       - Mentorship: engineering-handbook/career-growth/mentorship.md
+  
+  # API Guidelines Section
   - API Guidelines:
     - Overview: api-guidelines/README.md
-    - REST: api-guidelines/rest-guidelines.md
-    - GraphQL: api-guidelines/graphql-guidelines.md
+    - Design Principles: api-guidelines/design-principles.md
+    - REST Guidelines: api-guidelines/rest-guidelines.md
+    - GraphQL Guidelines: api-guidelines/graphql-guidelines.md
     - Versioning: api-guidelines/versioning.md
     - Error Handling: api-guidelines/error-handling.md
     - Security: api-guidelines/security.md
+  
+  # Internal Documentation Section
   - Internal Docs:
     - Overview: internal-docs/README.md
     - Onboarding:
@@ -39,11 +57,41 @@ nav:
       - New Developer Guide: internal-docs/onboarding/new-developer-guide.md
       - Tools and Access: internal-docs/onboarding/tools-and-access.md
     - Processes:
+      - Overview: internal-docs/processes/README.md
       - Code Review: internal-docs/processes/code-review-guidelines.md
       - Deployment: internal-docs/processes/deployment-process.md
     - Architecture:
+      - Overview: internal-docs/architecture/README.md
       - System Overview: internal-docs/architecture/system-overview.md
       - Microservices Map: internal-docs/architecture/microservices-map.md
     - Tutorials:
-      - Setup Local Env: internal-docs/tutorials/setup-local-env.md
-      - Debugging Issues: internal-docs/tutorials/debugging-common-issues.md
+      - Overview: internal-docs/tutorials/README.md
+      - Local Environment: internal-docs/tutorials/setup-local-env.md
+      - Debugging: internal-docs/tutorials/debugging-common-issues.md
+
+# Plugins
+plugins:
+  - search
+  - mkdocstrings
+  - mkdocs-material
+
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+# Extra configuration
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dexaminds
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/dexaminds
+
+# Copyright
+copyright: Copyright &copy; 2025 DexaMinds

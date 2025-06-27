@@ -1,0 +1,47 @@
+name: Sync Submodules and Deploy
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'  # every 3 hours
+  workflow_dispatch:       # manual trigger also
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo with submodules
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Update all submodules
+        run: |
+          git submodule update --remote --recursive
+
+      - name: Commit submodule updates
+        run: |
+          git add docs/api-guidelines
+          git add docs/engineering-handbook
+          git add docs/internal-docs
+
+          git diff --cached --quiet || git commit -m "Cron: Update submodules to latest commits"
+
+          git push origin main || echo "No changes to push"
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install MkDocs dependencies
+        run: pip install mkdocs mkdocs-material
+
+      - name: Deploy updated docs site
+        run: mkdocs gh-deploy --force

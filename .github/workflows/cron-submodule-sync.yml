@@ -2,8 +2,8 @@ name: Sync Submodules and Deploy
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # every 3 hours
-  workflow_dispatch:       # manual trigger also
+    - cron: '0 */1 * * *'
+  workflow_dispatch:
 
 jobs:
   sync-and-deploy:

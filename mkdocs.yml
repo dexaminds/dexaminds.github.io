@@ -15,6 +15,11 @@ theme:
     - navigation.top
     - search.highlight
 
+plugins:
+  - search
+  - exclude:
+      glob:
+        - "internal-docs/**"
 # Navigation
 nav:
   - Home: index.md

@@ -19,7 +19,7 @@ plugins:
   - search
   - exclude:
       glob:
-        - "internal-docs/**"
+        - "internal-docs/onboarding"
 # Navigation
 nav:
   - Home: index.md

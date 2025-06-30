@@ -2,7 +2,6 @@ site_name: Dexaminds Docs
 repo_url: https://github.com/dexaminds/dexaminds.github.io
 docs_dir: docs
 
-# Theme configuration
 theme:
   name: material
   language: en
@@ -19,57 +18,50 @@ plugins:
   - search
   - exclude:
       glob:
-        - "internal-docs/onboarding"
-# Navigation
+        - "internal-docs/onboarding/**"
+
 nav:
   - Home: index.md
-  
-  # Engineering Handbook Section
+
   - Engineering Handbook:
-    - Overview: engineering-handbook/README.md
-    - Coding Standards:
-      - Overview: engineering-handbook/coding-standards/README.md
-      - JavaScript: engineering-handbook/coding-standards/javascript.md
-      - Python: engineering-handbook/coding-standards/python.md
-    - Development Practices:
-      - Overview: engineering-handbook/development-practices/README.md
-      - Git Workflow: engineering-handbook/development-practices/git-workflow.md
-      - Testing Strategy: engineering-handbook/development-practices/testing-strategy.md
-    - Team Culture:
-      - Overview: engineering-handbook/team-culture/README.md
-      - Code of Conduct: engineering-handbook/team-culture/code-of-conduct.md
-      - Communication: engineering-handbook/team-culture/communication.md
-    - Career Growth:
-      - Overview: engineering-handbook/career-growth/README.md
-      - Leveling Framework: engineering-handbook/career-growth/leveling-framework.md
-      - Mentorship: engineering-handbook/career-growth/mentorship.md
-  
-  # API Guidelines Section
+      - Overview: engineering-handbook/README.md
+      - Coding Standards:
+          - Overview: engineering-handbook/coding-standards/README.md
+          - JavaScript: engineering-handbook/coding-standards/javascript.md
+          - Python: engineering-handbook/coding-standards/python.md
+      - Development Practices:
+          - Overview: engineering-handbook/development-practices/README.md
+          - Git Workflow: engineering-handbook/development-practices/git-workflow.md
+          - Testing Strategy: engineering-handbook/development-practices/testing-strategy.md
+      - Team Culture:
+          - Overview: engineering-handbook/team-culture/README.md
+          - Code of Conduct: engineering-handbook/team-culture/code-of-conduct.md
+          - Communication: engineering-handbook/team-culture/communication.md
+      - Career Growth:
+          - Overview: engineering-handbook/career-growth/README.md
+          - Leveling Framework: engineering-handbook/career-growth/leveling-framework.md
+          - Mentorship: engineering-handbook/career-growth/mentorship.md
+
   - API Guidelines:
-    - Overview: api-guidelines/README.md
-    - Design Principles: api-guidelines/design-principles.md
-    - REST Guidelines: api-guidelines/rest-guidelines.md
-    - GraphQL Guidelines: api-guidelines/graphql-guidelines.md
-    - Versioning: api-guidelines/versioning.md
-    - Error Handling: api-guidelines/error-handling.md
-    - Security: api-guidelines/security.md
-  
-  # Internal Documentation Section
+      - Overview: api-guidelines/README.md
+      - Design Principles: api-guidelines/design-principles.md
+      - REST Guidelines: api-guidelines/rest-guidelines.md
+      - GraphQL Guidelines: api-guidelines/graphql-guidelines.md
+      - Versioning: api-guidelines/versioning.md
+      - Error Handling: api-guidelines/error-handling.md
+      - Security: api-guidelines/security.md
+
   - Internal Docs:
-    - Overview: internal-docs/README.md
-    - Onboarding:
-      - Overview: internal-docs/onboarding/README.md
-      - New Developer Guide: internal-docs/onboarding/new-developer-guide.md
-      - Tools and Access: internal-docs/onboarding/tools-and-access.md
-    - Processes:
-      - Overview: internal-docs/processes/README.md
-      - Code Review: internal-docs/processes/code-review-guidelines.md
-      - Deployment: internal-docs/processes/deployment-process.md
-    - Architecture:
-      - Overview: internal-docs/architecture/README.md
-      - System Overview: internal-docs/architecture/system-overview.md
-      - Microservices Map: internal-docs/architecture/microservices-map.md
-    - Tutorials:
-      - Overview: internal-docs/tutorials/README.md
-      - Local Environment: internal-docs/tutorials/setup-local-env.md
-      - Debugging: internal-docs/tutorials/debugging-common-issues.md
+      - Overview: internal-docs/README.md
+      - Processes:
+          - Overview: internal-docs/processes/README.md
+          - Code Review: internal-docs/processes/code-review-guidelines.md
+          - Deployment: internal-docs/processes/deployment-process.md
+      - Architecture:
+          - Overview: internal-docs/architecture/README.md
+          - System Overview: internal-docs/architecture/system-overview.md
+          - Microservices Map: internal-docs/architecture/microservices-map.md
+      - Tutorials:
+          - Overview: internal-docs/tutorials/README.md
+          - Local Environment: internal-docs/tutorials/setup-local-env.md
+          - Debugging: internal-docs/tutorials/debugging-common-issues.md

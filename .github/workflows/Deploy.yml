@@ -27,6 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install mkdocs mkdocs-material mkdocs-exclude
+          pip install mkdocs-macros-plugin
 
 
       - name: Build and deploy

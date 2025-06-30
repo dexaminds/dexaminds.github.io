@@ -14,12 +14,13 @@ theme:
     - navigation.top
     - search.highlight
 
+# In mkdocs.yml
 plugins:
   - search
   - exclude:
       glob:
-        - "internal-docs/onboarding/**"
-
+        - "internal-docs/**"
+  - macros
 nav:
   - Home: index.md
 
@@ -51,17 +52,17 @@ nav:
       - Error Handling: api-guidelines/error-handling.md
       - Security: api-guidelines/security.md
 
-  - Internal Docs:
-      - Overview: internal-docs/README.md
-      - Processes:
-          - Overview: internal-docs/processes/README.md
-          - Code Review: internal-docs/processes/code-review-guidelines.md
-          - Deployment: internal-docs/processes/deployment-process.md
-      - Architecture:
-          - Overview: internal-docs/architecture/README.md
-          - System Overview: internal-docs/architecture/system-overview.md
-          - Microservices Map: internal-docs/architecture/microservices-map.md
-      - Tutorials:
-          - Overview: internal-docs/tutorials/README.md
-          - Local Environment: internal-docs/tutorials/setup-local-env.md
-          - Debugging: internal-docs/tutorials/debugging-common-issues.md
+#  - Internal Docs:
+#     - Overview: internal-docs/README.md
+#     - Processes:
+#         - Overview: internal-docs/processes/README.md
+#         - Code Review: internal-docs/processes/code-review-guidelines.md
+#         - Deployment: internal-docs/processes/deployment-process.md
+#     - Architecture:
+#         - Overview: internal-docs/architecture/README.md
+#         - System Overview: internal-docs/architecture/system-overview.md
+#         - Microservices Map: internal-docs/architecture/microservices-map.md
+#     - Tutorials:
+#         - Overview: internal-docs/tutorials/README.md
+#         - Local Environment: internal-docs/tutorials/setup-local-env.md
+#         - Debugging: internal-docs/tutorials/debugging-common-issues.md

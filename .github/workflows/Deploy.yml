@@ -24,6 +24,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install mkdocs mkdocs-material
+      - name: Install dependencies
+        run: |
+          pip install mkdocs mkdocs-material mkdocs-exclude
+
 
       - name: Build and deploy
         run: |

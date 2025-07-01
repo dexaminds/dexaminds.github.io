@@ -26,7 +26,7 @@ jobs:
           pip install mkdocs mkdocs-material
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material mkdocs-exclude
+          pip install mkdocs mkdocs-material
           pip install mkdocs-macros-plugin
 
 

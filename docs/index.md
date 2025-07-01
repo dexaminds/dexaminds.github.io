@@ -3,9 +3,7 @@
 Welcome to the internal engineering knowledge base.
 
 ## 📚 Sections
-{% if show_internal_docs %}
-## Internal Docs
-- [Overview](internal-docs/README.md)
-{% endif %}
+
+- [Docs](internal-docs/)
 - [Engineering Handbook](engineering-handbook/)
 - [API Guidelines](api-guidelines/)

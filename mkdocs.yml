@@ -7,21 +7,29 @@ theme:
   language: en
   palette:
     primary: blue
-    accent: indigo
+    accent: red
   features:
     - navigation.tabs
     - navigation.sections
     - navigation.top
     - search.highlight
 
-# In mkdocs.yml
 plugins:
-  - exclude:
-      glob:
-        - "internal-docs/**"
+  - search
+  - macros
 nav:
   - Home: index.md
 
+  - Docs:
+    - Overview: internal-docs/README.md
+    - Processes:
+        - Overview: internal-docs/processes/README.md
+        - Code Review: internal-docs/processes/code-review-guidelines.md
+        - Deployment: internal-docs/processes/deployment-process.md
+    - Tutorials:
+        - Overview: internal-docs/tutorials/README.md
+        - Local Environment: internal-docs/tutorials/setup-local-env.md
+        - Debugging: internal-docs/tutorials/debugging-common-issues.md
   - Engineering Handbook:
       - Overview: engineering-handbook/README.md
       - Coding Standards:
@@ -32,14 +40,6 @@ nav:
           - Overview: engineering-handbook/development-practices/README.md
           - Git Workflow: engineering-handbook/development-practices/git-workflow.md
           - Testing Strategy: engineering-handbook/development-practices/testing-strategy.md
-      - Team Culture:
-          - Overview: engineering-handbook/team-culture/README.md
-          - Code of Conduct: engineering-handbook/team-culture/code-of-conduct.md
-          - Communication: engineering-handbook/team-culture/communication.md
-      - Career Growth:
-          - Overview: engineering-handbook/career-growth/README.md
-          - Leveling Framework: engineering-handbook/career-growth/leveling-framework.md
-          - Mentorship: engineering-handbook/career-growth/mentorship.md
 
   - API Guidelines:
       - Overview: api-guidelines/README.md
@@ -50,17 +50,3 @@ nav:
       - Error Handling: api-guidelines/error-handling.md
       - Security: api-guidelines/security.md
 
-#  - Internal Docs:
-#     - Overview: internal-docs/README.md
-#     - Processes:
-#         - Overview: internal-docs/processes/README.md
-#         - Code Review: internal-docs/processes/code-review-guidelines.md
-#         - Deployment: internal-docs/processes/deployment-process.md
-#     - Architecture:
-#         - Overview: internal-docs/architecture/README.md
-#         - System Overview: internal-docs/architecture/system-overview.md
-#         - Microservices Map: internal-docs/architecture/microservices-map.md
-#     - Tutorials:
-#         - Overview: internal-docs/tutorials/README.md
-#         - Local Environment: internal-docs/tutorials/setup-local-env.md
-#         - Debugging: internal-docs/tutorials/debugging-common-issues.md

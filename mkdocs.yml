@@ -16,11 +16,9 @@ theme:
 
 # In mkdocs.yml
 plugins:
-  - search
   - exclude:
       glob:
         - "internal-docs/**"
-  - macros
 nav:
   - Home: index.md
 

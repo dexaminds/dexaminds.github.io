@@ -21,6 +21,21 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Update all submodules
+        run: |
+          git submodule update --remote --recursive
+
+      - name: Commit submodule updates
+        run: |
+          git add docs/api-guidelines
+          git add docs/engineering-handbook
+          git add docs/internal-docs
+
+          git diff --cached --quiet || git commit -m "Cron: Update submodules to latest commits"
+
+            git push origin main || echo "No changes to push"
+
+
       - name: Install dependencies
         run: |
           pip install mkdocs mkdocs-material

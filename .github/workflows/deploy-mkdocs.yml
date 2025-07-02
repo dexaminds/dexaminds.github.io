@@ -23,44 +23,15 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Update submodules to latest commits
-        run: git submodule update --init --recursive --remote
-
-      - name: Apply sparse checkout filters
+      - name: Setup sparse checkouts
         run: |
-          # API Guidelines
-          if [ -d "docs/api-guidelines" ]; then
-            cd docs/api-guidelines
-            git sparse-checkout init --cone
-            git sparse-checkout set --skip-checks README.md \
-              design-principles.md \
-              rest-guidelines.md \
-              graphql-guidelines.md \
-              versioning.md \
-              error-handling.md \
-              security.md
-            cd ../../..
-          fi
+          chmod +x ./scripts/setup-sparse-checkout.sh
+          ./scripts/setup-sparse-checkout.sh
 
-          # Engineering Handbook
-          if [ -d "docs/engineering-handbook" ]; then
-            cd docs/engineering-handbook
-            git sparse-checkout init --cone
-            git sparse-checkout set --skip-checks README.md \
-              coding-standards \
-              development-practices
-            cd ../../..
-          fi
-
-          # Internal Docs
-          if [ -d "docs/internal-docs" ]; then
-            cd docs/internal-docs
-            git sparse-checkout init --cone
-            git sparse-checkout set --skip-checks README.md \
-              processes \
-              tutorials
-            cd ../../..
-          fi
+      - name: Commit documentation changes
+        run: |
+          chmod +x ./scripts/commit-doc-changes.sh
+          ./scripts/commit-doc-changes.sh "chore: update documentation"
 
       - name: Install MkDocs and plugins
         run: |

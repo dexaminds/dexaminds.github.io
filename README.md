@@ -25,13 +25,22 @@ This documentation serves as the single source of truth for Dexaminds' engineeri
    cd dexaminds.github.io
    ```
 
-2. **Initialize Git Submodules**
+2. **Set up documentation with sparse checkout**
 
-   The documentation uses Git submodules for different sections. Initialize them with:
+   To optimize repository size and performance, we use a script that handles both submodule initialization and sparse checkout:
 
    ```bash
-   git submodule update --init --recursive
+   # Make the script executable
+   chmod +x ./scripts/setup-sparse-checkout.sh
+   
+   # Run the setup script (this will initialize submodules and configure sparse checkout)
+   ./scripts/setup-sparse-checkout.sh
    ```
+
+   This will:
+   - Initialize all required Git submodules
+   - Configure sparse checkout to only track essential documentation files
+   - Set up the repository structure for development
 
 3. **Build the custom Docker image**
    ```bash

@@ -22,45 +22,15 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Update submodules and apply sparse checkout
+      - name: Setup sparse checkouts
         run: |
-          git submodule update --init --recursive --remote
+          chmod +x ./scripts/setup-sparse-checkout.sh
+          ./scripts/setup-sparse-checkout.sh
 
-          # API Guidelines
-          cd docs/api-guidelines
-          git sparse-checkout init --cone
-          git sparse-checkout set --skip-checks README.md \
-            design-principles.md \
-            rest-guidelines.md \
-            graphql-guidelines.md \
-            versioning.md \
-            error-handling.md \
-            security.md
-          cd ../../..
-
-          # Engineering Handbook
-          cd docs/engineering-handbook
-          git sparse-checkout init --cone
-          git sparse-checkout set --skip-checks README.md \
-            coding-standards \
-            development-practices
-          cd ../../..
-
-          # Internal Docs
-          cd docs/internal-docs
-          git sparse-checkout init --cone
-          git sparse-checkout set --skip-checks README.md \
-            processes \
-            tutorials
-          cd ../../..
-
-      - name: Commit sparse content
+      - name: Commit documentation changes
         run: |
-          git add docs/api-guidelines
-          git add docs/engineering-handbook
-          git add docs/internal-docs
-          git diff --cached --quiet || git commit -m "Cron: Sparse update of submodules"
-          git push origin main || echo "No changes to push"
+          chmod +x ./scripts/commit-doc-changes.sh
+          ./scripts/commit-doc-changes.sh "chore: update documentation submodules"
 
       - name: Install MkDocs dependencies
         run: |

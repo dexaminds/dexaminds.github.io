@@ -2,7 +2,7 @@ name: Sync Submodules and Deploy (Sparse Checkout)
 
 on:
   schedule:
-    - cron: '29 18 * * *'
+    - cron: '59 11 * * *'
   workflow_dispatch:
 
 jobs:

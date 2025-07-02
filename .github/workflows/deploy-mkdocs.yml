@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository with submodules
         uses: actions/checkout@v3
         with:
           submodules: recursive
@@ -21,35 +22,46 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Update all submodules
+      - name: Update submodules to latest commits
         run: |
-          git submodule update --remote --recursive
+          git submodule update --init --recursive --remote
 
-      - name: Commit submodule updates
+      - name: Apply sparse checkout filters
         run: |
-          git add docs/api-guidelines
-          git add docs/engineering-handbook
-          git add docs/internal-docs
+          # API Guidelines
+          cd docs/api-guidelines
+          git sparse-checkout init --cone
+          git sparse-checkout set --skip-checks README.md \
+            design-principles.md \
+            rest-guidelines.md \
+            graphql-guidelines.md \
+            versioning.md \
+            error-handling.md \
+            security.md
+          git pull origin main
+          cd ../../..
 
-          git diff --cached --quiet || git commit -m "Cron: Update submodules to latest commits"
+          # Engineering Handbook
+          cd docs/engineering-handbook
+          git sparse-checkout init --cone
+          git sparse-checkout set --skip-checks README.md \
+            coding-standards \
+            development-practices
+          git pull origin main
+          cd ../../..
 
-            git push origin main || echo "No changes to push"
+          # Internal Docs
+          cd docs/internal-docs
+          git sparse-checkout init --cone
+          git sparse-checkout set --skip-checks README.md \
+            processes \
+            tutorials
+          git pull origin main
+          cd ../../..
 
-
-      - name: Install dependencies
+      - name: Install MkDocs and plugins
         run: |
-          pip install mkdocs mkdocs-material
-      - name: Install dependencies
-        run: |
-          pip install mkdocs mkdocs-material
-          pip install mkdocs-macros-plugin
+          pip install mkdocs mkdocs-material mkdocs-macros-plugin
 
-
-      - name: Build and deploy
-        run: |
-          mkdocs gh-deploy --force
+      - name: Build and deploy to GitHub Pages
+        run: mkdocs gh-deploy --force

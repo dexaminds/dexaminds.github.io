@@ -1,8 +1,8 @@
-name: Sync Submodules and Deploy
+name: Sync Submodules and Deploy (Sparse Checkout)
 
 on:
   schedule:
-    - cron: '59 23 * * *'
+    - cron: '29 18 * * *'
   workflow_dispatch:
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo with submodules
+      - name: Checkout main repo with submodules
         uses: actions/checkout@v3
         with:
           submodules: recursive
@@ -21,27 +21,52 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Update all submodules
+      - name: Update submodules and apply sparse checkout
         run: |
-          git submodule update --remote --recursive
+          git submodule update --init --recursive --remote
 
-      - name: Commit submodule updates
+          # API Guidelines
+          cd docs/api-guidelines
+          git sparse-checkout init --cone
+          git sparse-checkout set --skip-checks README.md \
+            design-principles.md \
+            rest-guidelines.md \
+            graphql-guidelines.md \
+            versioning.md \
+            error-handling.md \
+            security.md
+          git pull origin main
+          cd ../../..
+
+          # Engineering Handbook
+          cd docs/engineering-handbook
+          git sparse-checkout init --cone
+          git sparse-checkout set --skip-checks README.md \
+            coding-standards \
+            development-practices
+          git pull origin main
+          cd ../../..
+
+          # Internal Docs
+          cd docs/internal-docs
+          git sparse-checkout init --cone
+          git sparse-checkout set --skip-checks README.md \
+            processes \
+            tutorials
+          git pull origin main
+          cd ../../..
+
+      - name: Commit sparse content
         run: |
           git add docs/api-guidelines
           git add docs/engineering-handbook
           git add docs/internal-docs
-
-          git diff --cached --quiet || git commit -m "Cron: Update submodules to latest commits"
-
+          git diff --cached --quiet || git commit -m "Cron: Sparse update of submodules"
           git push origin main || echo "No changes to push"
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
       - name: Install MkDocs dependencies
-        run: pip install mkdocs mkdocs-material
+        run: |
+          pip install mkdocs mkdocs-material mkdocs-macros-plugin
 
       - name: Deploy updated docs site
         run: mkdocs gh-deploy --force

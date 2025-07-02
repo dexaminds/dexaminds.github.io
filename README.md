@@ -26,9 +26,9 @@ This documentation serves as the single source of truth for Dexaminds' engineeri
    ```
 
 2. **Initialize Git Submodules**
-   
+
    The documentation uses Git submodules for different sections. Initialize them with:
-   
+
    ```bash
    git submodule update --init --recursive
    ```

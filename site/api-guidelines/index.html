@@ -9,23 +9,25 @@
       
       
       
+        <link rel="prev" href="../engineering-handbook/development-practices/testing-strategy/">
       
-        <link rel="next" href="internal-docs/">
+      
+        <link rel="next" href="design-principles/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Dexaminds Docs</title>
+        <title>Overview - Dexaminds Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dexaminds-documentation-hub" class="md-skip">
+        <a href="#dexaminds-api-guidelines" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +84,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Dexaminds Docs" class="md-header__button md-logo" aria-label="Dexaminds Docs" data-md-component="logo">
+    <a href=".." title="Dexaminds Docs" class="md-header__button md-logo" aria-label="Dexaminds Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -102,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Overview
             
           </span>
         </div>
@@ -185,11 +187,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -210,7 +210,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="internal-docs/" class="md-tabs__link">
+        <a href="../internal-docs/" class="md-tabs__link">
           
   
   
@@ -230,7 +230,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="engineering-handbook/" class="md-tabs__link">
+        <a href="../engineering-handbook/" class="md-tabs__link">
           
   
   
@@ -246,11 +246,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="api-guidelines/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -284,7 +286,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Dexaminds Docs" class="md-nav__button md-logo" aria-label="Dexaminds Docs" data-md-component="logo">
+    <a href=".." title="Dexaminds Docs" class="md-nav__button md-logo" aria-label="Dexaminds Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -311,32 +313,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -347,35 +327,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sections" class="md-nav__link">
-    <span class="md-ellipsis">
-      📚 Sections
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -430,7 +381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/" class="md-nav__link">
+      <a href="../internal-docs/" class="md-nav__link">
         
   
   
@@ -496,7 +447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/processes/" class="md-nav__link">
+      <a href="../internal-docs/processes/" class="md-nav__link">
         
   
   
@@ -519,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/processes/code-review-guidelines/" class="md-nav__link">
+      <a href="../internal-docs/processes/code-review-guidelines/" class="md-nav__link">
         
   
   
@@ -542,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/processes/deployment-process/" class="md-nav__link">
+      <a href="../internal-docs/processes/deployment-process/" class="md-nav__link">
         
   
   
@@ -616,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/tutorials/" class="md-nav__link">
+      <a href="../internal-docs/tutorials/" class="md-nav__link">
         
   
   
@@ -639,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/tutorials/setup-local-env/" class="md-nav__link">
+      <a href="../internal-docs/tutorials/setup-local-env/" class="md-nav__link">
         
   
   
@@ -662,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/tutorials/debugging-common-issues/" class="md-nav__link">
+      <a href="../internal-docs/tutorials/debugging-common-issues/" class="md-nav__link">
         
   
   
@@ -743,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/" class="md-nav__link">
+      <a href="../engineering-handbook/" class="md-nav__link">
         
   
   
@@ -809,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/coding-standards/" class="md-nav__link">
+      <a href="../engineering-handbook/coding-standards/" class="md-nav__link">
         
   
   
@@ -832,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/coding-standards/javascript/" class="md-nav__link">
+      <a href="../engineering-handbook/coding-standards/javascript/" class="md-nav__link">
         
   
   
@@ -855,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/coding-standards/python/" class="md-nav__link">
+      <a href="../engineering-handbook/coding-standards/python/" class="md-nav__link">
         
   
   
@@ -929,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/development-practices/" class="md-nav__link">
+      <a href="../engineering-handbook/development-practices/" class="md-nav__link">
         
   
   
@@ -952,7 +903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/development-practices/git-workflow/" class="md-nav__link">
+      <a href="../engineering-handbook/development-practices/git-workflow/" class="md-nav__link">
         
   
   
@@ -975,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/development-practices/testing-strategy/" class="md-nav__link">
+      <a href="../engineering-handbook/development-practices/testing-strategy/" class="md-nav__link">
         
   
   
@@ -1010,26 +961,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1042,7 +998,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             API Guidelines
@@ -1053,10 +1009,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="api-guidelines/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1067,6 +1045,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Quick Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Purpose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠 Style &amp; Formatting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Maintenance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤝 Contributing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      ℹ️ Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1079,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/design-principles/" class="md-nav__link">
+      <a href="design-principles/" class="md-nav__link">
         
   
   
@@ -1102,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/rest-guidelines/" class="md-nav__link">
+      <a href="rest-guidelines/" class="md-nav__link">
         
   
   
@@ -1125,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/graphql-guidelines/" class="md-nav__link">
+      <a href="graphql-guidelines/" class="md-nav__link">
         
   
   
@@ -1148,7 +1200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/versioning/" class="md-nav__link">
+      <a href="versioning/" class="md-nav__link">
         
   
   
@@ -1171,7 +1223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/error-handling/" class="md-nav__link">
+      <a href="error-handling/" class="md-nav__link">
         
   
   
@@ -1194,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/security/" class="md-nav__link">
+      <a href="security/" class="md-nav__link">
         
   
   
@@ -1244,9 +1296,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sections" class="md-nav__link">
+  <a href="#quick-navigation" class="md-nav__link">
     <span class="md-ellipsis">
-      📚 Sections
+      📋 Quick Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Purpose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠 Style &amp; Formatting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Maintenance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤝 Contributing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      ℹ️ Additional Resources
     </span>
   </a>
   
@@ -1271,14 +1368,70 @@
   
 
 
-<h1 id="dexaminds-documentation-hub">Dexaminds Documentation Hub</h1>
-<p>Welcome to the internal engineering knowledge base.</p>
-<h2 id="sections">📚 Sections</h2>
+<h1 id="dexaminds-api-guidelines">🚀 DexaMinds API Guidelines</h1>
+<p>Welcome to the DexaMinds API Guidelines! This collection of documents outlines the standards, best practices, and conventions for designing, developing, and maintaining APIs across our platform.</p>
+<p>Following these guidelines ensures consistency, improves developer experience, and enhances security and performance across all services.</p>
+<p>Please refer to the respective sections for REST, GraphQL, versioning, error handling, and more.</p>
+<h2 id="quick-navigation">📋 Quick Navigation</h2>
 <ul>
-<li><a href="internal-docs/">Docs</a></li>
-<li><a href="engineering-handbook/">Engineering Handbook</a></li>
-<li><a href="api-guidelines/">API Guidelines</a></li>
+<li><strong><a href="rest-guidelines/">REST API Guidelines</a></strong> - Standards for RESTful API design</li>
+<li><strong><a href="graphql-guidelines/">GraphQL Guidelines</a></strong> - Best practices for GraphQL APIs</li>
+<li><strong><a href="error-handling/">Error Handling</a></strong> - Standardized error responses and codes</li>
+<li><strong><a href="versioning/">Versioning</a></strong> - API versioning strategy</li>
+<li><strong><a href="security/">Security</a></strong> - Security best practices</li>
+<li><strong><a href="design-principles/">Design Principles</a></strong> - Core API design philosophy</li>
 </ul>
+<h2 id="purpose">🎯 Purpose</h2>
+<p>These guidelines ensure consistency, improve developer experience, and enhance security and performance across all DexaMinds services. Following these standards helps maintain a cohesive API ecosystem that is:</p>
+<ul>
+<li><strong>Intuitive</strong>: Easy to understand and use</li>
+<li><strong>Consistent</strong>: Follows predictable patterns</li>
+<li><strong>Maintainable</strong>: Easy to update and extend</li>
+<li><strong>Secure</strong>: Built with security in mind</li>
+</ul>
+<h2 id="style-formatting">🛠 Style &amp; Formatting</h2>
+<ul>
+<li>Use clear, concise language</li>
+<li>Follow the <a href="https://cloud.google.com/apis/design">Google API Design Guide</a> principles</li>
+<li>Maintain consistent formatting across all API documentation</li>
+<li>Include practical examples for all endpoints and types</li>
+</ul>
+<h2 id="maintenance">🔄 Maintenance</h2>
+<ol>
+<li><strong>Keep it current</strong></li>
+<li>Update guidelines when introducing new patterns or technologies</li>
+<li>
+<p>Review and revise guidelines quarterly</p>
+</li>
+<li>
+<p><strong>Versioning</strong></p>
+</li>
+<li>Document breaking changes clearly</li>
+<li>
+<p>Maintain backward compatibility when possible</p>
+</li>
+<li>
+<p><strong>Documentation</strong></p>
+</li>
+<li>Include code samples in multiple languages</li>
+<li>Document all parameters and responses</li>
+<li>Provide context and examples for complex operations</li>
+</ol>
+<h2 id="contributing">🤝 Contributing</h2>
+<p>We welcome contributions to improve these guidelines! Please follow these steps:</p>
+<ol>
+<li>Open an issue to discuss proposed changes</li>
+<li>Create a pull request with your updates</li>
+<li>Request review from the API Guild</li>
+</ol>
+<h2 id="i-additional-resources">ℹ️ Additional Resources</h2>
+<ul>
+<li><a href="https://swagger.io/specification/">OpenAPI Specification</a></li>
+<li><a href="https://graphql.org/learn/best-practices/">GraphQL Best Practices</a></li>
+<li><a href="https://restfulapi.net/">REST API Tutorial</a></li>
+</ul>
+<hr />
+<p>Last updated: June 2024</p>
 
 
 
@@ -1333,10 +1486,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>

@@ -1,33 +1,44 @@
 set -e
 
+# Ensure parent directory
 mkdir -p docs && cd docs
 
-# API GUIDELINES
+# 1. API GUIDELINES SUBMODULE
 mkdir -p api-guidelines && cd api-guidelines
-git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds:dexaminds/api-guidelines.git .
+git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/api-guidelines.git .
 git sparse-checkout init --cone
-git sparse-checkout set --skip-checks README.md design-principles.md rest-guidelines.md graphql-guidelines.md versioning.md error-handling.md security.md
+git sparse-checkout set --skip-checks README.md \
+  design-principles.md \
+  rest-guidelines.md \
+  graphql-guidelines.md \
+  versioning.md \
+  error-handling.md \
+  security.md
 git pull origin main
 cd ..
 
-# ENGINEERING HANDBOOK
+# 2. ENGINEERING HANDBOOK SUBMODULE
 mkdir -p engineering-handbook && cd engineering-handbook
-git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds:dexaminds/engineering-handbook.git .
+git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/engineering-handbook.git .
 git sparse-checkout init --cone
-git sparse-checkout set --skip-checks README.md coding-standards development-practices
+git sparse-checkout set --skip-checks README.md \
+  coding-standards \
+  development-practices
 git pull origin main
 cd ..
 
-# INTERNAL DOCS
+# 3. INTERNAL DOCS SUBMODULE
 mkdir -p internal-docs && cd internal-docs
-git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds:dexaminds/docs.git .
+git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/docs.git .
 git sparse-checkout init --cone
-git sparse-checkout set --skip-checks README.md processes tutorials
+git sparse-checkout set --skip-checks README.md \
+  processes \
+  tutorials
 git pull origin main
-cd ../..
+cd ..
 
-# INDEX FILE
-cat <<EOF > docs/index.md
+# 4. Create index.md
+cat <<EOF > index.md
 # Dexaminds Documentation Hub
 
 Welcome to the internal engineering knowledge base.
@@ -38,3 +49,5 @@ Welcome to the internal engineering knowledge base.
 - [Engineering Handbook](engineering-handbook/)
 - [API Guidelines](api-guidelines/)
 EOF
+
+echo "✅ Sparse checkout complete and index.md created at docs/index.md"

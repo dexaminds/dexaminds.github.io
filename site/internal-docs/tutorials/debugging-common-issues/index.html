@@ -9,23 +9,25 @@
       
       
       
+        <link rel="prev" href="../setup-local-env/">
       
-        <link rel="next" href="internal-docs/">
+      
+        <link rel="next" href="../../../engineering-handbook/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Dexaminds Docs</title>
+        <title>Debugging - Dexaminds Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dexaminds-documentation-hub" class="md-skip">
+        <a href="#debugging-common-issues" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +84,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Dexaminds Docs" class="md-header__button md-logo" aria-label="Dexaminds Docs" data-md-component="logo">
+    <a href="../../.." title="Dexaminds Docs" class="md-header__button md-logo" aria-label="Dexaminds Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -102,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Debugging
             
           </span>
         </div>
@@ -185,11 +187,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -206,11 +206,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="internal-docs/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -230,7 +232,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="engineering-handbook/" class="md-tabs__link">
+        <a href="../../../engineering-handbook/" class="md-tabs__link">
           
   
   
@@ -250,7 +252,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api-guidelines/" class="md-tabs__link">
+        <a href="../../../api-guidelines/" class="md-tabs__link">
           
   
   
@@ -284,7 +286,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Dexaminds Docs" class="md-nav__button md-logo" aria-label="Dexaminds Docs" data-md-component="logo">
+    <a href="../../.." title="Dexaminds Docs" class="md-nav__button md-logo" aria-label="Dexaminds Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -311,32 +313,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -347,35 +327,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sections" class="md-nav__link">
-    <span class="md-ellipsis">
-      📚 Sections
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -384,26 +335,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -416,7 +372,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Docs
@@ -430,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -459,17 +415,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
             
   
   
@@ -496,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/processes/" class="md-nav__link">
+      <a href="../../processes/" class="md-nav__link">
         
   
   
@@ -519,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/processes/code-review-guidelines/" class="md-nav__link">
+      <a href="../../processes/code-review-guidelines/" class="md-nav__link">
         
   
   
@@ -542,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/processes/deployment-process/" class="md-nav__link">
+      <a href="../../processes/deployment-process/" class="md-nav__link">
         
   
   
@@ -570,26 +529,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
             
   
   
@@ -602,7 +566,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -616,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/tutorials/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -639,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="internal-docs/tutorials/setup-local-env/" class="md-nav__link">
+      <a href="../setup-local-env/" class="md-nav__link">
         
   
   
@@ -659,10 +623,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="internal-docs/tutorials/debugging-common-issues/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Debugging
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -673,6 +659,221 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-debugging-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 General Debugging Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 Common Issues &amp; Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Common Issues &amp; Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-database-connection-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Database Connection Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-frontend-not-connecting-to-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Frontend Not Connecting to Backend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dependency-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dependency Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-docker-container-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Docker Container Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-database-migration-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Database Migration Problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠 Debugging Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠 Debugging Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-pythondjango" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backend (Python/Django)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-reactnextjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontend (React/Next.js)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-error-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Common Error Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Common Error Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-not-found-cant-resolve-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Module not found: Can't resolve 'module'"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-already-in-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Port already in use"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-is-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Database is locked"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Performance Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Performance Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slow-database-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slow Database Queries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontend Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆘 Getting Help
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -743,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/" class="md-nav__link">
+      <a href="../../../engineering-handbook/" class="md-nav__link">
         
   
   
@@ -809,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/coding-standards/" class="md-nav__link">
+      <a href="../../../engineering-handbook/coding-standards/" class="md-nav__link">
         
   
   
@@ -832,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/coding-standards/javascript/" class="md-nav__link">
+      <a href="../../../engineering-handbook/coding-standards/javascript/" class="md-nav__link">
         
   
   
@@ -855,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/coding-standards/python/" class="md-nav__link">
+      <a href="../../../engineering-handbook/coding-standards/python/" class="md-nav__link">
         
   
   
@@ -929,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/development-practices/" class="md-nav__link">
+      <a href="../../../engineering-handbook/development-practices/" class="md-nav__link">
         
   
   
@@ -952,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/development-practices/git-workflow/" class="md-nav__link">
+      <a href="../../../engineering-handbook/development-practices/git-workflow/" class="md-nav__link">
         
   
   
@@ -975,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="engineering-handbook/development-practices/testing-strategy/" class="md-nav__link">
+      <a href="../../../engineering-handbook/development-practices/testing-strategy/" class="md-nav__link">
         
   
   
@@ -1056,7 +1257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/" class="md-nav__link">
+      <a href="../../../api-guidelines/" class="md-nav__link">
         
   
   
@@ -1079,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/design-principles/" class="md-nav__link">
+      <a href="../../../api-guidelines/design-principles/" class="md-nav__link">
         
   
   
@@ -1102,7 +1303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/rest-guidelines/" class="md-nav__link">
+      <a href="../../../api-guidelines/rest-guidelines/" class="md-nav__link">
         
   
   
@@ -1125,7 +1326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/graphql-guidelines/" class="md-nav__link">
+      <a href="../../../api-guidelines/graphql-guidelines/" class="md-nav__link">
         
   
   
@@ -1148,7 +1349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/versioning/" class="md-nav__link">
+      <a href="../../../api-guidelines/versioning/" class="md-nav__link">
         
   
   
@@ -1171,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/error-handling/" class="md-nav__link">
+      <a href="../../../api-guidelines/error-handling/" class="md-nav__link">
         
   
   
@@ -1194,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api-guidelines/security/" class="md-nav__link">
+      <a href="../../../api-guidelines/security/" class="md-nav__link">
         
   
   
@@ -1244,9 +1445,195 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sections" class="md-nav__link">
+  <a href="#general-debugging-approach" class="md-nav__link">
     <span class="md-ellipsis">
-      📚 Sections
+      🔍 General Debugging Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 Common Issues &amp; Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Common Issues &amp; Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-database-connection-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Database Connection Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-frontend-not-connecting-to-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Frontend Not Connecting to Backend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dependency-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dependency Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-docker-container-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Docker Container Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-database-migration-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Database Migration Problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠 Debugging Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠 Debugging Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-pythondjango" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backend (Python/Django)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-reactnextjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontend (React/Next.js)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-error-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Common Error Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Common Error Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-not-found-cant-resolve-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Module not found: Can't resolve 'module'"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-already-in-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Port already in use"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-is-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Database is locked"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Performance Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Performance Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slow-database-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slow Database Queries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontend Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      🆘 Getting Help
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Additional Resources
     </span>
   </a>
   
@@ -1271,14 +1658,187 @@
   
 
 
-<h1 id="dexaminds-documentation-hub">Dexaminds Documentation Hub</h1>
-<p>Welcome to the internal engineering knowledge base.</p>
-<h2 id="sections">📚 Sections</h2>
+<h1 id="debugging-common-issues">🐛 Debugging Common Issues</h1>
+<p>This guide covers common issues you might encounter while working with the DexaMinds platform and how to resolve them.</p>
+<h2 id="general-debugging-approach">🔍 General Debugging Approach</h2>
+<ol>
+<li><strong>Check the logs</strong>
+   ```bash
+   # View application logs
+   docker-compose logs -f</li>
+</ol>
+<p># View backend logs
+   tail -f backend/logs/debug.log
+   ```</p>
+<ol>
+<li>
+<p><strong>Verify services are running</strong>
+   <code>bash
+   docker ps</code></p>
+</li>
+<li>
+<p><strong>Check service status</strong>
+   ```bash
+   # Backend
+   curl http://localhost:8000/health</p>
+</li>
+</ol>
+<p># Frontend
+   curl -I http://localhost:3000
+   ```</p>
+<h2 id="common-issues-solutions">🚨 Common Issues &amp; Solutions</h2>
+<h3 id="1-database-connection-issues">1. Database Connection Issues</h3>
+<p><strong>Symptoms</strong>:
+- "Could not connect to database" errors
+- Timeout when accessing database</p>
+<p><strong>Solutions</strong>:</p>
+<pre><code class="language-bash"># Check if PostgreSQL is running
+docker ps | grep postgres
+
+# Check PostgreSQL logs
+docker-compose logs postgres
+
+# Try connecting manually
+PGPASSWORD=postgres psql -h localhost -U postgres -d dexaminds
+</code></pre>
+<h3 id="2-frontend-not-connecting-to-backend">2. Frontend Not Connecting to Backend</h3>
+<p><strong>Symptoms</strong>:
+- API requests failing with CORS errors
+- "Connection refused" errors</p>
+<p><strong>Solutions</strong>:
+1. Verify backend is running
+2. Check <code>NEXT_PUBLIC_API_URL</code> in frontend <code>.env</code>
+3. Ensure CORS is properly configured in backend</p>
+<h3 id="3-dependency-issues">3. Dependency Issues</h3>
+<p><strong>Symptoms</strong>:
+- Module not found errors
+- Version conflicts</p>
+<p><strong>Solutions</strong>:</p>
+<pre><code class="language-bash"># Frontend
+rm -rf node_modules package-lock.json
+npm install
+
+# Backend
+rm -rf venv
+python -m venv venv
+source venv/bin/activate  # Windows: .\venv\Scripts\activate
+pip install -r requirements.txt
+</code></pre>
+<h3 id="4-docker-container-issues">4. Docker Container Issues</h3>
+<p><strong>Symptoms</strong>:
+- Containers won't start
+- Port conflicts</p>
+<p><strong>Solutions</strong>:</p>
+<pre><code class="language-bash"># Stop and remove all containers
+docker-compose down
+
+# Rebuild containers
+docker-compose build --no-cache
+
+# Check for port conflicts
+lsof -i :&lt;port&gt;  # Mac/Linux
+netstat -ano | findstr :&lt;port&gt;  # Windows
+</code></pre>
+<h3 id="5-database-migration-problems">5. Database Migration Problems</h3>
+<p><strong>Symptoms</strong>:
+- Migration conflicts
+- Database schema out of sync</p>
+<p><strong>Solutions</strong>:</p>
+<pre><code class="language-bash"># Show migrations
+python manage.py showmigrations
+
+# Reset migrations (DEV ONLY)
+find . -path &quot;*/migrations/*.py&quot; -not -name &quot;__init__.py&quot; -delete
+find . -path &quot;*/migrations/*.pyc&quot; -delete
+python manage.py makemigrations
+python manage.py migrate --fake-initial
+</code></pre>
+<h2 id="debugging-tools">🛠 Debugging Tools</h2>
+<h3 id="backend-pythondjango">Backend (Python/Django)</h3>
+<ol>
+<li>
+<p><strong>pdb Debugger</strong>
+   <code>python
+   import pdb; pdb.set_trace()  # Add to your code</code></p>
+</li>
+<li>
+<p><strong>Django Debug Toolbar</strong>
+   <code>python
+   # settings.py
+   INSTALLED_APPS += ['debug_toolbar']
+   MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+   INTERNAL_IPS = ['127.0.0.1']</code></p>
+</li>
+</ol>
+<h3 id="frontend-reactnextjs">Frontend (React/Next.js)</h3>
+<ol>
+<li><strong>React Developer Tools</strong></li>
+<li>Install Chrome/Firefox extension</li>
+<li>
+<p>Inspect component hierarchy and props</p>
+</li>
+<li>
+<p><strong>Browser DevTools</strong></p>
+</li>
+<li>Console for errors</li>
+<li>Network tab for API calls</li>
+<li>Application tab for storage</li>
+</ol>
+<h2 id="common-error-messages">📝 Common Error Messages</h2>
+<h3 id="module-not-found-cant-resolve-module">"Module not found: Can't resolve 'module'"</h3>
+<pre><code class="language-bash"># Delete node_modules and reinstall
+rm -rf node_modules
+npm install
+</code></pre>
+<h3 id="port-already-in-use">"Port already in use"</h3>
+<pre><code class="language-bash"># Find and kill the process
+lsof -i :3000  # Replace with your port
+kill -9 &lt;PID&gt;
+</code></pre>
+<h3 id="database-is-locked">"Database is locked"</h3>
+<pre><code class="language-bash"># For SQLite
+rm db.sqlite3
+python manage.py migrate
+python manage.py createsuperuser
+</code></pre>
+<h2 id="performance-issues">🔍 Performance Issues</h2>
+<h3 id="slow-database-queries">Slow Database Queries</h3>
+<pre><code class="language-python"># Add to settings.py to log slow queries
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+        }
+    },
+}
+</code></pre>
+<h3 id="frontend-performance">Frontend Performance</h3>
+<ol>
+<li>Use React DevTools Profiler</li>
+<li>Check bundle size with <code>source-map-explorer</code></li>
+<li>Lazy load components</li>
+</ol>
+<h2 id="getting-help">🆘 Getting Help</h2>
+<p>When asking for help, please provide:
+1. Error message
+2. Steps to reproduce
+3. Environment details
+4. What you've tried</p>
+<h2 id="additional-resources">📚 Additional Resources</h2>
 <ul>
-<li><a href="internal-docs/">Docs</a></li>
-<li><a href="engineering-handbook/">Engineering Handbook</a></li>
-<li><a href="api-guidelines/">API Guidelines</a></li>
+<li><a href="https://reactnative.dev/docs/debugging">React Debugging</a></li>
+<li><a href="https://docs.docker.com/config/daemon/#troubleshoot-the-daemon">Docker Troubleshooting</a></li>
 </ul>
+<hr />
+<p>Last Updated: June 2025</p>
 
 
 
@@ -1333,10 +1893,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>

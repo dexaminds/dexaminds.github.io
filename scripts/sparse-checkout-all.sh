@@ -1,11 +1,15 @@
+#!/bin/bash
 set -e
+
+# Use custom SSH config explicitly
+export GIT_SSH_COMMAND="ssh -F ~/.ssh/config"
 
 # Ensure parent directory
 mkdir -p docs && cd docs
 
 # 1. API GUIDELINES SUBMODULE
 mkdir -p api-guidelines && cd api-guidelines
-git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/api-guidelines.git .
+GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/api-guidelines.git .
 git sparse-checkout init --cone
 git sparse-checkout set --skip-checks README.md \
   design-principles.md \
@@ -19,7 +23,7 @@ cd ..
 
 # 2. ENGINEERING HANDBOOK SUBMODULE
 mkdir -p engineering-handbook && cd engineering-handbook
-git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/engineering-handbook.git .
+GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/engineering-handbook.git .
 git sparse-checkout init --cone
 git sparse-checkout set --skip-checks README.md \
   coding-standards \
@@ -29,7 +33,7 @@ cd ..
 
 # 3. INTERNAL DOCS SUBMODULE
 mkdir -p internal-docs && cd internal-docs
-git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/docs.git .
+GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/docs.git .
 git sparse-checkout init --cone
 git sparse-checkout set --skip-checks README.md \
   processes \

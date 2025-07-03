@@ -31,10 +31,10 @@ This documentation serves as the single source of truth for Dexaminds' engineeri
 
    ```bash
    # Make the script executable
-   chmod +x ./scripts/setup-sparse-checkout.sh
-   
+   chmod +x ./scripts/sparse-checkout-all.sh
+
    # Run the setup script (this will initialize submodules and configure sparse checkout)
-   ./scripts/setup-sparse-checkout.sh
+   ./scripts/sparse-checkout-all.sh
    ```
 
    This will:

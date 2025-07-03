@@ -1,0 +1,43 @@
+name: Sync Selected Docs from Private Repos
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '59 11 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout public repo
+        uses: actions/checkout@v3
+
+      - name: Setup SSH for private repo access
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GH_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Run Sparse Checkout Sync Script
+        run: |
+          chmod +x sparse-checkout-all.sh
+          ./sparse-checkout-all.sh
+
+      - name: Commit and Push Updated Docs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet || git commit -m "Automated Sync: Update selected documentation"
+          git push origin main || echo "No changes to commit"
+
+      - name: Install MkDocs and Plugins
+        run: |
+          pip install mkdocs mkdocs-material mkdocs-macros-plugin
+
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force

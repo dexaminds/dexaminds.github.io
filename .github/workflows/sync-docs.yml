@@ -21,9 +21,6 @@ jobs:
           echo "${{ secrets.GH_SSH_KEY_ADMIN }}" > ~/.ssh/id_admin_dexaminds_rsa
           chmod 600 ~/.ssh/id_admin_dexaminds_rsa
 
-          echo "${{ secrets.GH_SSH_KEY_USER }}" > ~/.ssh/id_swaraj_dexaminds_rsa
-          chmod 600 ~/.ssh/id_swaraj_dexaminds_rsa
-
           cat <<EOF > ~/.ssh/config
           Host github.com-dexaminds
               HostName github.com
@@ -39,6 +36,10 @@ jobs:
           EOF
 
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Clean previous docs folder
+        run: |
+          rm -rf docs
 
       - name: Run Sparse Checkout Sync Script
         run: |

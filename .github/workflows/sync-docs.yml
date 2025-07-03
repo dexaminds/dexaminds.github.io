@@ -24,8 +24,8 @@ jobs:
 
       - name: Run Sparse Checkout Sync Script
         run: |
-          chmod +x sparse-checkout-all.sh
-          ./sparse-checkout-all.sh
+          chmod +x scripts/sparse-checkout-all.sh
+          ./scripts/sparse-checkout-all.sh
 
       - name: Commit and Push Updated Docs
         run: |

@@ -22,12 +22,6 @@ jobs:
           chmod 600 ~/.ssh/id_admin_dexaminds_rsa
 
           cat <<EOF > ~/.ssh/config
-          Host github.com-dexaminds
-              HostName github.com
-              User git
-              IdentityFile ~/.ssh/id_swaraj_dexaminds_rsa
-              IdentitiesOnly yes
-
           Host github.com-dexaminds-second
               HostName github.com
               User git

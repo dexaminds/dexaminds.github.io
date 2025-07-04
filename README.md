@@ -10,115 +10,167 @@ Welcome to the Dexaminds Documentation Hub, the central knowledge base for Dexam
 
 This documentation serves as the single source of truth for Dexaminds' engineering practices, API guidelines, and internal processes. It's built using [MkDocs](https://www.mkdocs.org/) with the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, containerized with Docker for easy development and deployment.
 
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or Docker Engine for Linux)
 - Git
+- SSH access to private repositories
+
+#### SSH Setup (choose one)
+
+##### ➤ Single User (basic key setup)
+
+1. Add your SSH key to `~/.ssh/id_rsa`
+2. Add the following to `~/.ssh/config`:
+
+    ```ssh
+    Host github.com
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_rsa
+        IdentitiesOnly yes
+    ```
+
+##### ➤ Multi-User or Org Key Setup (aliases)
+
+1. Add your keys to `~/.ssh/`
+    - `id_admin_dexaminds_rsa`
+
+2. Add to `~/.ssh/config`:
+
+    ```ssh
+
+    Host github.com-dexaminds-second
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_admin_dexaminds_rsa
+        IdentitiesOnly yes
+    ```
+
+3. Run:
+    ```bash
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
+    ```
+
+---
 
 ### Local Development with Docker
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/dexaminds/dexaminds.github.io.git
-   cd dexaminds.github.io
-   ```
+
+    ```bash
+    git clone https://github.com/dexaminds/dexaminds.github.io.git
+    cd dexaminds.github.io
+    ```
 
 2. **Set up documentation with sparse checkout**
 
-   To optimize repository size and performance, we use a script that handles both submodule initialization and sparse checkout:
-
-   ```bash
-   # Make the script executable
-   chmod +x ./scripts/sparse-checkout-all.sh
-
-   # Run the setup script (this will initialize submodules and configure sparse checkout)
-   ./scripts/sparse-checkout-all.sh
-   ```
-
-   This will:
-   - Initialize all required Git submodules
-   - Configure sparse checkout to only track essential documentation files
-   - Set up the repository structure for development
+    ```bash
+    chmod +x ./scripts/sparse-checkout-all.sh
+    ./scripts/sparse-checkout-all.sh
+    ```
 
 3. **Build the custom Docker image**
-   ```bash
-   docker build -t dexaminds-docs .
-   ```
+
+    ```bash
+    docker build -t dexaminds-docs .
+    ```
 
 4. **Start the development server**
-   ```bash
-   docker run --rm -it -p 8000:8000 -v "/$(pwd -W)":/docs dexaminds-docs
-   ```
-   **For Windows Command Prompt (cmd.exe):**
-   ```cmd
-   docker run --rm -it -p 8000:8000 -v "%cd%":/docs dexaminds-docs
-   ```
-   - The site will be available at `http://localhost:8000`
-   - Auto-reload is enabled by default - your changes will be reflected instantly
 
-### Common Docker Commands
+    ```bash
+    docker run --rm -it -p 8000:8000 -v "/$(pwd -W)":/docs dexaminds-docs
+    ```
 
-- **Stop the server**: Press `Ctrl+C` in the terminal
-- **View site**: Open `http://localhost:8000` in your browser
-- **Check MkDocs version**:
-  ```bash
-  docker run --rm dexaminds-docs --version
-  ```
+    **For Windows (cmd.exe):**
+
+    ```cmd
+    docker run --rm -it -p 8000:8000 -v "%cd%":/docs dexaminds-docs
+    ```
+
+---
+
+## 📦 Managing Documentation Sources
+
+Documentation sources are fetched from private repositories using **modular sparse checkout**.
+
+All repo sources are defined in:
+
+```
+scripts/docs-sources.txt
+```
+
+### ➕ To Add a New Source Repo
+
+1. Edit `scripts/docs-sources.txt` and add:
+
+    ```txt
+    <target-folder>|<repo-ssh-url>|<comma-separated sparse paths>
+    ```
+
+    Example:
+
+    ```txt
+    guides|git@github.com-dexaminds-second:dexaminds/new-guides.git|README.md,intro.md,setup.md
+    ```
+
+2. Run:
+
+    ```bash
+    ./scripts/sparse-checkout-all.sh
+    ```
+
+---
 
 ## 📂 Project Structure
 
 ```
 .
-├── docs/                    # Documentation source files
-│   ├── api-guidelines/      # API design and usage guidelines
-│   ├── engineering-handbook/ # Engineering best practices
-│   ├── internal-docs/       # Internal documentation
-│   └── index.md             # Documentation homepage
-├── site/                   # Generated site (do not edit directly)
-├── .github/                # GitHub configuration
-├── mkdocs.yml              # MkDocs configuration
-└── README.md               # This file
+├── docs/
+│   ├── api-guidelines/
+│   ├── engineering-handbook/
+│   ├── internal-docs/
+│   └── index.md
+├── site/
+├── .github/
+├── scripts/
+├── mkdocs.yml
+└── README.md
 ```
+
+---
 
 ## 📝 Documentation Sections
 
-1. **Docs**
-   - Internal documentation including processes and tutorials
-   - Code review guidelines
-   - Deployment processes
-   - Local environment setup
+1. **Docs** – Internal processes, tutorials, deployments
+2. **Engineering Handbook** – Coding standards, Git workflow, testing
+3. **API Guidelines** – REST, GraphQL, versioning, error handling
 
-2. **Engineering Handbook**
-   - Coding standards (JavaScript, Python)
-   - Development practices
-   - Git workflow
-   - Testing strategy
-
-3. **API Guidelines**
-   - Design principles
-   - REST and GraphQL guidelines
-   - Versioning strategy
-   - Error handling
-   - Security best practices
+---
 
 ## 🤝 Contributing
 
-We welcome contributions to improve our documentation! Here's how you can help:
+1. Fork this repository
+2. Create a branch for your changes
+3. Make edits and commit
+4. Push to your fork
+5. Submit a Pull Request
 
-1. Fork the repository
-2. Create a new branch for your changes
-3. Make your changes and commit them
-4. Push to your fork and submit a pull request
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License – see [LICENSE](LICENSE)
+
+---
 
 ## 🙏 Acknowledgments
 
 - [MkDocs](https://www.mkdocs.org/)
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 - [Docker](https://www.docker.com/)
-- All contributors who help improve our documentation
+- Dexaminds team contributors 💙

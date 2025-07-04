@@ -1,49 +1,37 @@
 #!/bin/bash
 set -e
 
-# Use custom SSH config explicitly
 export GIT_SSH_COMMAND="ssh -F ~/.ssh/config"
 
-# Ensure parent directory
-mkdir -p docs && cd docs
+DOCS_DIR="docs"
+CONFIG_FILE="scripts/docs-sources.txt"
 
-# 1. API GUIDELINES SUBMODULE
-mkdir -p api-guidelines && cd api-guidelines
-GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/api-guidelines.git .
-git sparse-checkout init --cone
-git sparse-checkout set --skip-checks README.md \
-  design-principles.md \
-  rest-guidelines.md \
-  graphql-guidelines.md \
-  versioning.md \
-  error-handling.md \
-  security.md
-git pull origin main
-cd ..
+# Ensure base docs folder
+rm -rf "$DOCS_DIR"
+mkdir -p "$DOCS_DIR"
+cd "$DOCS_DIR"
 
-# 2. ENGINEERING HANDBOOK SUBMODULE
-mkdir -p engineering-handbook && cd engineering-handbook
-GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/engineering-handbook.git .
-git sparse-checkout init --cone
-git sparse-checkout set --skip-checks README.md \
-  coding-standards \
-  development-practices
-git pull origin main
-cd ..
+# Loop through each line in config file
+while IFS='|' read -r target_folder repo_url sparse_paths || [[ -n "$target_folder" ]]; do
+  # Skip comments or empty lines
+  [[ "$target_folder" =~ ^#.*$ || -z "$target_folder" ]] && continue
 
-# 3. INTERNAL DOCS SUBMODULE
-mkdir -p internal-docs && cd internal-docs
-GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --depth=1 --filter=blob:none --sparse git@github.com-dexaminds-second:dexaminds/docs.git .
-git sparse-checkout init --cone
-git sparse-checkout set --skip-checks README.md \
-  processes \
-  tutorials
-git pull origin main
-cd ..
+  echo "🔄 Cloning $repo_url into $target_folder with sparse paths: $sparse_paths"
 
-# 4. Create index.md
+  mkdir -p "$target_folder"
+  cd "$target_folder"
+
+  GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --depth=1 --filter=blob:none --sparse "$repo_url" .
+  git sparse-checkout init --cone
+  git sparse-checkout set --skip-checks $(echo "$sparse_paths" | tr ',' ' ')
+  git pull origin main
+
+  cd ..
+done < "../$CONFIG_FILE"
+
+# Generate index.md
 cat <<EOF > index.md
-# Dexaminds Documentation Hub
+# DexaMinds Knowledge Hub
 
 Welcome to the internal engineering knowledge base.
 

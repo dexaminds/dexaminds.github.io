@@ -1,5 +1,0 @@
-# Format: <target-folder>|<repo-ssh-url>|<sparse-path-1>,<sparse-path-2>,...
-
-api-guidelines|git@github.com-dexaminds-second:dexaminds/api-guidelines.git|README.md,design-principles.md,rest-guidelines.md,graphql-guidelines.md,versioning.md,error-handling.md,security.md
-engineering-handbook|git@github.com-dexaminds-second:dexaminds/engineering-handbook.git|README.md,coding-standards,development-practices
-internal-docs|git@github.com-dexaminds-second:dexaminds/docs.git|README.md,processes,tutorials

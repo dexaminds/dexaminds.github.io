@@ -18,7 +18,7 @@ jobs:
       - name: Setup SSH keys and config
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.GH_SSH_KEY_ADMIN }}" > ~/.ssh/id_swaraj_dexaminds_rsa
+          echo "${{ secrets.GH_SSH_KEY_SWARAJ }}" > ~/.ssh/id_swaraj_dexaminds_rsa
           chmod 600 ~/.ssh/id_swaraj_dexaminds_rsa
 
           cat <<EOF > ~/.ssh/config

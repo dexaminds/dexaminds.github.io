@@ -6,6 +6,8 @@
 
 Welcome to the Dexaminds Documentation Hub, the central knowledge base for Dexaminds' engineering team. This repository contains the source files for our public-facing documentation website.
 
+---
+
 ## 📖 Overview
 
 This documentation serves as the single source of truth for Dexaminds' engineering practices, API guidelines, and internal processes. It's built using [MkDocs](https://www.mkdocs.org/) with the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, containerized with Docker for easy development and deployment.
@@ -16,113 +18,149 @@ This documentation serves as the single source of truth for Dexaminds' engineeri
 
 ### Prerequisites
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or Docker Engine for Linux)
-- Git
-- SSH access to private repositories
-
-#### SSH Setup (choose one)
-
-##### ➤ Single User (basic key setup)
-
-1. Add your SSH key to `~/.ssh/id_rsa`
-2. Add the following to `~/.ssh/config`:
-
-    ```ssh
-    Host github.com
-        HostName github.com
-        User git
-        IdentityFile ~/.ssh/id_rsa
-        IdentitiesOnly yes
-    ```
-
-##### ➤ Multi-User or Org Key Setup (aliases)
-
-1. Add your keys to `~/.ssh/`
-    - `id_admin_dexaminds_rsa`
-
-2. Add to `~/.ssh/config`:
-
-    ```ssh
-
-    Host github.com-dexaminds-second
-        HostName github.com
-        User git
-        IdentityFile ~/.ssh/id_admin_dexaminds_rsa
-        IdentitiesOnly yes
-    ```
-
-3. Run:
-    ```bash
-    ssh-keyscan github.com >> ~/.ssh/known_hosts
-    ```
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) or Docker Engine
+* Git
+* SSH access to private repositories
 
 ---
 
-### Local Development with Docker
+## 🔐 SSH Setup (Choose One)
 
-1. **Clone the repository**
+### ➔ Single User (Basic SSH Setup)
 
-    ```bash
-    git clone https://github.com/dexaminds/dexaminds.github.io.git
-    cd dexaminds.github.io
-    ```
+1. Generate an SSH key if not already available:
 
-2. **Set up documentation with sparse checkout**
+   `bash
+   ssh-keygen -t rsa -b 2048 -C "your-email@example.com"
+   `
 
-    ```bash
-    chmod +x ./scripts/sparse-checkout-all.sh
-    ./scripts/sparse-checkout-all.sh
-    ```
+2. Add your **public key** (`~/.ssh/id_rsa.pub`) to your **GitHub account**:
 
-3. **Build the custom Docker image**
+   \* GitHub → Profile → Settings → SSH and GPG Keys → New SSH Key
 
-    ```bash
-    docker build -t dexaminds-docs .
-    ```
+3. Add this to your `~/.ssh/config`:
 
-4. **Start the development server**
+   `ssh
+   Host github.com
+     HostName github.com
+     User git
+     IdentityFile ~/.ssh/id_rsa
+     IdentitiesOnly yes
+   `
 
-    ```bash
-    docker run --rm -it -p 8000:8000 -v "/$(pwd -W)":/docs dexaminds-docs
-    ```
+4. Test the SSH connection:
 
-    **For Windows (cmd.exe):**
-
-    ```cmd
-    docker run --rm -it -p 8000:8000 -v "%cd%":/docs dexaminds-docs
-    ```
+   `bash
+   ssh -T git@github.com
+   `
 
 ---
 
-## 📦 Managing Documentation Sources
+### ➔ Multi-User or Organization SSH Setup (With Aliases)
 
-Documentation sources are fetched from private repositories using **modular sparse checkout**.
+1. Save your private key (example: `id_dexaminds_admin.rsa`) to `~/.ssh/`.
 
-All repo sources are defined in:
+2. Update `~/.ssh/config` to use a custom alias (example below):
+
+   `ssh
+   Host github.com-dexaminds-admin
+     HostName github.com
+     User git
+     IdentityFile ~/.ssh/id_dexaminds_admin.rsa
+     IdentitiesOnly yes
+   `
+
+3. Add GitHub's public key to `known_hosts` (to avoid confirmation prompts):
+
+   `bash
+   ssh-keyscan github.com >> ~/.ssh/known_hosts
+   `
+
+> ✅ **SSH Key Naming Convention (suggested):**
+>
+> `id_<org>_<role>.rsa` — e.g., `id_dexaminds_admin.rsa`
+
+---
+
+## 📦 Documentation Sources & Sparse Checkout
+
+Documentation is fetched from multiple private repositories using **sparse checkout** defined in a centralized config file:
 
 ```
-scripts/docs-sources.txt
+scripts/docs-sources.json
 ```
 
-### ➕ To Add a New Source Repo
+### 🧩 Example Entry (`docs-sources.json`)
 
-1. Edit `scripts/docs-sources.txt` and add:
+```json
+{
+  "target": "api-guidelines",
+  "repo": "dexaminds/api-guidelines",
+  "paths": ["README.md", "design-principles.md", "rest-guidelines.md"],
+  "alias": "github.com-dexaminds-admin"
+}
+```
 
-    ```txt
-    <target-folder>|<repo-ssh-url>|<comma-separated sparse paths>
-    ```
+### Field Explanation
 
-    Example:
+| Field  | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| target | Local folder under `docs/` where content will be checked out              |
+| repo   | GitHub repository (format: `org/repo`)                                    |
+| paths  | List of files/folders to fetch (sparse checkout)                          |
+| alias  | Optional. SSH alias as per `~/.ssh/config`. Omit if using default GitHub. |
 
-    ```txt
-    guides|git@github.com-dexaminds-second:dexaminds/new-guides.git|README.md,intro.md,setup.md
-    ```
+💡 **Tip:** If you're not using aliases, omit the `"alias"` key entirely and ensure your SSH works with `git@github.com`.
 
-2. Run:
+---
 
-    ```bash
-    ./scripts/sparse-checkout-all.sh
-    ```
+## ➕ Add a New Documentation Source
+
+1. Open the file: `scripts/docs-sources.json`
+2. Add a new object in the array with desired `target`, `repo`, `paths`, and optionally `alias`
+3. Run the sparse-checkout script:
+
+   `bash
+   ./scripts/sparse-checkout-all.sh
+   `
+
+---
+
+## 🧪 Local Development with Docker
+
+1. **Clone this repository:**
+
+   `bash
+   git clone https://github.com/dexaminds/dexaminds.github.io.git
+   cd dexaminds.github.io
+   `
+
+2. **Run sparse-checkout to pull docs from private repos:**
+
+   `bash
+   chmod +x ./scripts/sparse-checkout-all.sh
+   ./scripts/sparse-checkout-all.sh
+   `
+
+3. **Build the Docker image:**
+
+   `bash
+   docker build -t dexaminds-docs .
+   `
+
+4. **Run the development server:**
+
+   `bash
+   docker run --rm -it -p 8000:8000 -v "/$(pwd -W)":/docs dexaminds-docs
+   `
+
+   > **Windows (cmd.exe)**:
+   >
+   > `cmd
+   > docker run --rm -it -p 8000:8000 -v "%cd%":/docs dexaminds-docs
+   > `
+
+5. Visit `http://localhost:8000` in your browser to preview the site.
 
 ---
 
@@ -130,47 +168,68 @@ scripts/docs-sources.txt
 
 ```
 .
-├── docs/
+├── docs/                  # Contains fetched docs via sparse checkout
 │   ├── api-guidelines/
 │   ├── engineering-handbook/
 │   ├── internal-docs/
 │   └── index.md
-├── site/
-├── .github/
-├── scripts/
-├── mkdocs.yml
-└── README.md
+├── site/                  # Auto-generated by MkDocs (do not edit)
+├── scripts/               # Utility scripts
+│   ├── sparse-checkout-all.sh
+│   └── docs-sources.json
+├── mkdocs.yml             # Main MkDocs config file
+└── README.md              # You're here!
 ```
 
 ---
 
-## 📝 Documentation Sections
+## ⚙️ Building with MkDocs Locally (No Docker)
 
-1. **Docs** – Internal processes, tutorials, deployments
-2. **Engineering Handbook** – Coding standards, Git workflow, testing
-3. **API Guidelines** – REST, GraphQL, versioning, error handling
+If you prefer not to use Docker:
+
+```bash
+pip install mkdocs mkdocs-material mkdocs-macros-plugin
+mkdocs serve
+```
+
+Then open `http://localhost:8000`
+
+---
+
+## 👨‍💼 New Developer Onboarding
+
+### ✅ Admin Tasks (Repository Owner)
+
+* Add the new member to each private repository:
+
+  * Go to **GitHub > Repo > Settings > Collaborators**
+  * Invite user by GitHub username
+* Ensure their public SSH key is uploaded to their GitHub account
+* Share naming convention and SSH alias format
+* Add relevant SSH private key to GitHub Actions as `GH_SSH_KEY_ADMIN` if used in CI/CD
+
+### ✅ Developer Tasks (New Member)
+
+* Upload public key to GitHub account
+* Configure `~/.ssh/config` using single or alias setup
+* Clone this repository
+* Run `scripts/sparse-checkout-all.sh`
+* Use Docker or MkDocs to serve the site locally
 
 ---
 
 ## 🤝 Contributing
 
 1. Fork this repository
-2. Create a branch for your changes
-3. Make edits and commit
-4. Push to your fork
-5. Submit a Pull Request
-
----
-
-## 📄 License
-
-MIT License – see [LICENSE](LICENSE)
+2. Create a new feature branch
+3. Make your changes
+4. Push and open a Pull Request
 
 ---
 
 ## 🙏 Acknowledgments
 
-- [MkDocs](https://www.mkdocs.org/)
-- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
-- [Docker](https://www.docker.com/)
-- Dexaminds team contributors 💙
+* [MkDocs](https://www.mkdocs.org/)
+* [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+* [Docker](https://www.docker.com/)
+* Contributors and community 💙

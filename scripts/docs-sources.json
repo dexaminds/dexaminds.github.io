@@ -1,0 +1,36 @@
+[
+  {
+    "target": "api-guidelines",
+    "repo": "dexaminds/api-guidelines",
+    "paths": [
+      "README.md",
+      "design-principles.md",
+      "rest-guidelines.md",
+      "graphql-guidelines.md",
+      "versioning.md",
+      "error-handling.md",
+      "security.md"
+    ],
+    "alias": "github.com-dexaminds"
+  },
+  {
+    "target": "engineering-handbook",
+    "repo": "dexaminds/engineering-handbook",
+    "paths": [
+      "README.md",
+      "coding-standards",
+      "development-practices"
+    ],
+    "alias": "github.com-dexaminds"
+  },
+  {
+    "target": "internal-docs",
+    "repo": "dexaminds/docs",
+    "paths": [
+      "README.md",
+      "processes",
+      "tutorials"
+    ],
+    "alias": "github.com-dexaminds"
+  }
+]

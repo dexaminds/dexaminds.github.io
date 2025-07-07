@@ -3,35 +3,32 @@ set -e
 
 export GIT_SSH_COMMAND="ssh -F ~/.ssh/config"
 
-DOCS_DIR="docs"
-CONFIG_FILE="scripts/docs-sources.txt"
+SOURCE_FILE="scripts/docs-sources.json"
 
-# Ensure base docs folder
-rm -rf "$DOCS_DIR"
-mkdir -p "$DOCS_DIR"
-cd "$DOCS_DIR"
+mkdir -p docs && cd docs
 
-# Loop through each line in config file
-while IFS='|' read -r target_folder repo_url sparse_paths || [[ -n "$target_folder" ]]; do
-  # Skip comments or empty lines
-  [[ "$target_folder" =~ ^#.*$ || -z "$target_folder" ]] && continue
+jq -c '.[]' "../$SOURCE_FILE" | while read -r entry; do
+  target=$(echo "$entry" | jq -r '.target')
+  repo=$(echo "$entry" | jq -r '.repo')
+  alias=$(echo "$entry" | jq -r '.alias // "github.com"')
+  [[ -z "$alias" ]] && alias="github.com"
+  paths=$(echo "$entry" | jq -r '.paths | join(" ")')
 
-  echo "🔄 Cloning $repo_url into $target_folder with sparse paths: $sparse_paths"
+  echo "📁 Cloning $repo into $target using alias: $alias"
+  mkdir -p "$target"
+  cd "$target"
 
-  mkdir -p "$target_folder"
-  cd "$target_folder"
+  GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --depth=1 --filter=blob:none --sparse "git@${alias}:${repo}.git" .
 
-  GIT_SSH_COMMAND="ssh -F ~/.ssh/config" git clone --depth=1 --filter=blob:none --sparse "$repo_url" .
   git sparse-checkout init --cone
-  git sparse-checkout set --skip-checks $(echo "$sparse_paths" | tr ',' ' ')
+  git sparse-checkout set --skip-checks $paths
   git pull origin main
-
   cd ..
-done < "../$CONFIG_FILE"
+done
 
-# Generate index.md
+# Create root index
 cat <<EOF > index.md
-# DexaMinds Knowledge Hub
+# Dexaminds Documentation Hub
 
 Welcome to the internal engineering knowledge base.
 
@@ -42,4 +39,4 @@ Welcome to the internal engineering knowledge base.
 - [API Guidelines](api-guidelines/)
 EOF
 
-echo "✅ Sparse checkout complete and index.md created at docs/index.md"
+echo "✅ Sparse checkout complete."

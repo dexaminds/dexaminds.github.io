@@ -1,4 +1,4 @@
-# Dexaminds Documentation Hub
+# DexaMinds Knowledge Hub
 
 Welcome to the internal engineering knowledge base.
 

@@ -29,7 +29,8 @@
     "paths": [
       "README.md",
       "processes",
-      "tutorials"
+      "tutorials",
+      "leads"
     ],
     "alias": "github.com-dexaminds"
   }

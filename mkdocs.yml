@@ -26,6 +26,11 @@ nav:
         - Overview: internal-docs/processes/README.md
         - Code Review: internal-docs/processes/code-review-guidelines.md
         - Deployment: internal-docs/processes/deployment-process.md
+    - Leads:
+        - Overview: internal-docs/leads/README.md
+        - LinkedIn: internal-docs/leads/channels/linkedin/linkedIn.md
+        - Sales Navigator: internal-docs/leads/channels/linkedin/sales_navigator.md
+        - Lead Generation: internal-docs/leads/channels/linkedin/lead_generation.md
     - Tutorials:
         - Overview: internal-docs/tutorials/README.md
         - Local Environment: internal-docs/tutorials/setup-local-env.md

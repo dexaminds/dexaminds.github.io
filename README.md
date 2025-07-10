@@ -1,4 +1,4 @@
-# Dexaminds Documentation Hub
+# DexaMinds Documentation Hub
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-brightgreen.svg)](https://dexaminds.github.io/)
 [![MkDocs Material](https://img.shields.io/badge/MkDocs-Material-blue.svg)](https://squidfunk.github.io/mkdocs-material/)
@@ -78,7 +78,7 @@ This documentation serves as the single source of truth for Dexaminds' engineeri
 
 > ✅ **SSH Key Naming Convention (suggested):**
 >
-> `id_<org>_<role>.rsa` — e.g., `id_dexaminds_admin.rsa`
+> `id_<org>_<user_name>.rsa` — e.g., `id_dexaminds_admin.rsa`
 
 ---
 

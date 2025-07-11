@@ -1,5 +1,6 @@
 name: Sync Selected Docs from Private Repos
-
+env:
+    GH_HOST_ALIAS: ${{ secrets.GH_HOST_ALIAS }}
 on:
   push:
     branches: [main]

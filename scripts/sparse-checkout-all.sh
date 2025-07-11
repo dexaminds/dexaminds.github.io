@@ -5,6 +5,7 @@ export GIT_SSH_COMMAND="ssh -F ~/.ssh/config"
 
 SOURCE_FILE="scripts/docs-sources.json"
 
+rm -rf docs
 mkdir -p docs && cd docs
 
 jq -c '.[]' "../$SOURCE_FILE" | while read -r entry; do

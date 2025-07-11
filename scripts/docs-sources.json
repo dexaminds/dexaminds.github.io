@@ -10,8 +10,7 @@
       "versioning.md",
       "error-handling.md",
       "security.md"
-    ],
-    "alias": "github.com-dexaminds"
+    ]
   },
   {
     "target": "engineering-handbook",
@@ -20,8 +19,7 @@
       "README.md",
       "coding-standards",
       "development-practices"
-    ],
-    "alias": "github.com-dexaminds"
+    ]
   },
   {
     "target": "internal-docs",
@@ -31,7 +29,6 @@
       "processes",
       "tutorials",
       "leads"
-    ],
-    "alias": "github.com-dexaminds"
+    ]
   }
 ]

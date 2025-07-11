@@ -18,7 +18,7 @@ else
 fi
 
 # Set default alias if not defined in .env
-GITHUB_ALIAS=${GITHUB_HOST_ALIAS:-github.com}
+GITHUB_ALIAS=${GH_HOST_ALIAS:-github.com}
 
 SOURCE_FILE="scripts/docs-sources.json"
 

@@ -1,0 +1,3132 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../rest-guidelines/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Design Principles - DexaMinds Knowledge Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-design-principles" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DexaMinds Knowledge Hub" class="md-header__button md-logo" aria-label="DexaMinds Knowledge Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DexaMinds Knowledge Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Design Principles
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dexaminds/dexaminds.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../internal-docs/" class="md-tabs__link">
+          
+  
+  
+  Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../engineering-handbook/" class="md-tabs__link">
+          
+  
+  
+  Engineering Handbook
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  API Guidelines
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DexaMinds Knowledge Hub" class="md-nav__button md-logo" aria-label="DexaMinds Knowledge Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DexaMinds Knowledge Hub
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dexaminds/dexaminds.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Processes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Processes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/processes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/processes/code-review-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Review
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/processes/deployment-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Leads
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Leads
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/leads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/leads/channels/linkedin/linkedIn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LinkedIn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/leads/channels/linkedin/sales_navigator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sales Navigator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/leads/channels/linkedin/lead_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lead Generation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/tutorials/setup-local-env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Local Environment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internal-docs/tutorials/debugging-common-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Engineering Handbook
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Engineering Handbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engineering-handbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Coding Standards
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Coding Standards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engineering-handbook/coding-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engineering-handbook/coding-standards/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engineering-handbook/coding-standards/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development Practices
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Development Practices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engineering-handbook/development-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engineering-handbook/development-practices/git-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engineering-handbook/development-practices/testing-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Guidelines
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API Guidelines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Design Principles
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design Principles
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restful-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      RESTful Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RESTful Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-client-server-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Client-Server Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-resource-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resource Identification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-oriented" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource-Oriented
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource-Oriented">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-resource-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Resource Naming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-resource-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resource Relationships
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statelessness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statelessness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statelessness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-stateless-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Stateless Servers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-authentication-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Authentication &amp; Authorization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consistency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consistency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Naming Conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Response Format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idempotency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Idempotency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idempotency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-safe-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Safe Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-making-mutations-idempotent" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Making Mutations Idempotent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-idempotency-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Idempotency Keys
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Versioning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-versioning-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Versioning Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-versioning-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Versioning Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-error-response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Error Response Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-http-status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. HTTP Status Codes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Pagination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-filtering-sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Filtering &amp; Sorting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Authorization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Input Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. API Reference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-interactive-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Interactive Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-guides-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Guides &amp; Tutorials
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-backward-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Backward Compatibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deprecation-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Deprecation Policy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-design-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Design First
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-keep-it-simple-kiss" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Keep It Simple (KISS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dont-repeat-yourself-dry" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Don't Repeat Yourself (DRY)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-you-arent-gonna-need-it-yagni" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. You Aren't Gonna Need It (YAGNI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-principle-of-least-privilege" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Principle of Least Privilege
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-fail-fast-fail-loudly" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Fail Fast, Fail Loudly
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anti-patterns-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anti-Patterns to Avoid
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anti-Patterns to Avoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-over-fetchingunder-fetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Over-fetching/Under-fetching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-chatty-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Chatty APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ignoring-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ignoring Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ignoring-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Ignoring Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-poor-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Poor Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-maturity-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Maturity Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Maturity Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-0-http-as-a-tunnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 0: HTTP as a Tunnel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-1-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 1: Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-http-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 2: HTTP Verbs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-hypermedia-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 3: Hypermedia Controls
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-api-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring API Quality
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring API Quality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-performance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Performance Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-developer-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Developer Experience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-business-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Business Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GraphQL Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restful-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      RESTful Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RESTful Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-client-server-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Client-Server Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-resource-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resource Identification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-oriented" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource-Oriented
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource-Oriented">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-resource-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Resource Naming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-resource-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resource Relationships
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statelessness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statelessness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statelessness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-stateless-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Stateless Servers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-authentication-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Authentication &amp; Authorization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consistency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consistency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Naming Conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Response Format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idempotency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Idempotency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idempotency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-safe-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Safe Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-making-mutations-idempotent" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Making Mutations Idempotent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-idempotency-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Idempotency Keys
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Versioning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-versioning-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Versioning Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-versioning-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Versioning Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-error-response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Error Response Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-http-status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. HTTP Status Codes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Pagination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-filtering-sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Filtering &amp; Sorting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Authorization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Input Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. API Reference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-interactive-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Interactive Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-guides-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Guides &amp; Tutorials
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-backward-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Backward Compatibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deprecation-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Deprecation Policy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-design-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Design First
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-keep-it-simple-kiss" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Keep It Simple (KISS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dont-repeat-yourself-dry" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Don't Repeat Yourself (DRY)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-you-arent-gonna-need-it-yagni" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. You Aren't Gonna Need It (YAGNI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-principle-of-least-privilege" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Principle of Least Privilege
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-fail-fast-fail-loudly" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Fail Fast, Fail Loudly
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anti-patterns-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anti-Patterns to Avoid
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anti-Patterns to Avoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-over-fetchingunder-fetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Over-fetching/Under-fetching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-chatty-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Chatty APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ignoring-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ignoring Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ignoring-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Ignoring Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-poor-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Poor Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-maturity-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Maturity Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Maturity Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-0-http-as-a-tunnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 0: HTTP as a Tunnel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-1-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 1: Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-http-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 2: HTTP Verbs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-hypermedia-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 3: Hypermedia Controls
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-api-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring API Quality
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring API Quality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-performance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Performance Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-developer-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Developer Experience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-business-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Business Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="api-design-principles">API Design Principles</h1>
+<p>API design is grounded in clarity, consistency, and usability. The following principles guide our decisions:</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#restful-design">RESTful Design</a></li>
+<li><a href="#resource-oriented">Resource-Oriented</a></li>
+<li><a href="#statelessness">Statelessness</a></li>
+<li><a href="#consistency">Consistency</a></li>
+<li><a href="#idempotency">Idempotency</a></li>
+<li><a href="#versioning">Versioning</a></li>
+<li><a href="#error-handling">Error Handling</a></li>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#security">Security</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#evolution">Evolution</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+</ol>
+<h2 id="restful-design">RESTful Design</h2>
+<h3 id="1-client-server-architecture">1. Client-Server Architecture</h3>
+<ul>
+<li><strong>Separation of Concerns</strong>: Clear separation between client and server</li>
+<li><strong>Stateless Communication</strong>: Each request contains all necessary information</li>
+<li><strong>Cacheable</strong>: Responses define cacheability</li>
+<li><strong>Uniform Interface</strong>: Standardized way of interacting with resources</li>
+<li><strong>Layered System</strong>: Client can't tell if connected to end server or intermediary</li>
+</ul>
+<h3 id="2-resource-identification">2. Resource Identification</h3>
+<ul>
+<li>Use nouns (not verbs) to identify resources</li>
+<li>Use plural nouns for collections (<code>/users</code> not <code>/user</code>)</li>
+<li>Use forward slashes (/) for hierarchy (<code>/users/123/orders</code>)</li>
+<li>Use hyphens (-) for multi-word path segments (<code>/product-categories</code>)</li>
+<li>Use lowercase letters in paths and headers</li>
+<li>Never use file extensions in URIs</li>
+</ul>
+<h2 id="resource-oriented">Resource-Oriented</h2>
+<h3 id="1-resource-naming">1. Resource Naming</h3>
+<ul>
+<li><strong>Pluralization</strong>: Use plural for collections (<code>/users</code>)</li>
+<li><strong>Consistency</strong>: Stick to either plural or singular (prefer plural)</li>
+<li><strong>Concreteness</strong>: Use concrete rather than abstract names</li>
+<li><strong>Avoid Verbs</strong>: Use HTTP methods to indicate actions</li>
+</ul>
+<h3 id="2-resource-relationships">2. Resource Relationships</h3>
+<ul>
+<li><strong>Hierarchy</strong>: Parent/child relationships via path segments (<code>/users/123/orders</code>)</li>
+<li><strong>References</strong>: Use IDs to reference related resources</li>
+<li><strong>Embedding</strong>: Include related resources when it improves efficiency</li>
+<li><strong>Pagination</strong>: Always paginate collections</li>
+</ul>
+<h2 id="statelessness">Statelessness</h2>
+<h3 id="1-stateless-servers">1. Stateless Servers</h3>
+<ul>
+<li>No client context stored on server between requests</li>
+<li>Each request contains all necessary authentication/authorization</li>
+<li>Session state held entirely on the client</li>
+<li>Improves reliability and scalability</li>
+</ul>
+<h3 id="2-authentication-authorization">2. Authentication &amp; Authorization</h3>
+<ul>
+<li>Use stateless authentication (JWT, OAuth2)</li>
+<li>Include auth tokens in headers</li>
+<li>Implement proper token expiration and refresh</li>
+<li>Follow principle of least privilege</li>
+</ul>
+<h2 id="consistency">Consistency</h2>
+<h3 id="1-naming-conventions">1. Naming Conventions</h3>
+<ul>
+<li><strong>camelCase</strong> for JSON properties</li>
+<li><strong>kebab-case</strong> for URLs and headers</li>
+<li><strong>UPPER_SNAKE_CASE</strong> for constants and enums</li>
+<li><strong>PascalCase</strong> for type names in documentation</li>
+</ul>
+<h3 id="2-response-format">2. Response Format</h3>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;123&quot;,
+    &quot;type&quot;: &quot;users&quot;,
+    &quot;attributes&quot;: {
+      &quot;name&quot;: &quot;John Doe&quot;,
+      &quot;email&quot;: &quot;john@example.com&quot;
+    },
+    &quot;relationships&quot;: {
+      &quot;organization&quot;: {
+        &quot;data&quot;: { &quot;id&quot;: &quot;456&quot;, &quot;type&quot;: &quot;organizations&quot; }
+      }
+    }
+  },
+  &quot;included&quot;: [
+    {
+      &quot;id&quot;: &quot;456&quot;,
+      &quot;type&quot;: &quot;organizations&quot;,
+      &quot;attributes&quot;: {
+        &quot;name&quot;: &quot;Acme Inc.&quot;
+      }
+    }
+  ],
+  &quot;meta&quot;: {
+    &quot;total&quot;: 100,
+    &quot;page&quot;: 1,
+    &quot;limit&quot;: 10
+  },
+  &quot;links&quot;: {
+    &quot;self&quot;: &quot;/users?page=1&quot;,
+    &quot;next&quot;: &quot;/users?page=2&quot;,
+    &quot;prev&quot;: null,
+    &quot;first&quot;: &quot;/users?page=1&quot;,
+    &quot;last&quot;: &quot;/users?page=10&quot;
+  }
+}
+</code></pre>
+<h2 id="idempotency">Idempotency</h2>
+<h3 id="1-safe-methods">1. Safe Methods</h3>
+<ul>
+<li><strong>GET</strong>, <strong>HEAD</strong>, <strong>OPTIONS</strong>, and <strong>TRACE</strong> are naturally idempotent</li>
+<li>Multiple identical requests have the same effect as a single request</li>
+</ul>
+<h3 id="2-making-mutations-idempotent">2. Making Mutations Idempotent</h3>
+<ul>
+<li><strong>PUT</strong>: Replace entire resource (idempotent)</li>
+<li><strong>PATCH</strong>: Partial updates (make idempotent with versioning)</li>
+<li><strong>DELETE</strong>: Idempotent by nature</li>
+<li><strong>POST</strong>: Not idempotent (use idempotency keys)</li>
+</ul>
+<h3 id="3-idempotency-keys">3. Idempotency Keys</h3>
+<pre><code class="language-http">POST /payments
+Idempotency-Key: 550e8400-e29b-41d4-a716-446655440000
+Content-Type: application/json
+
+{
+  &quot;amount&quot;: 1000,
+  &quot;currency&quot;: &quot;USD&quot;,
+  &quot;description&quot;: &quot;Subscription payment&quot;
+}
+</code></pre>
+<h2 id="versioning">Versioning</h2>
+<h3 id="1-versioning-strategies">1. Versioning Strategies</h3>
+<ul>
+<li><strong>URI Path</strong>: <code>/v1/users</code></li>
+<li><strong>Header</strong>: <code>Accept: application/vnd.dexaminds.v1+json</code></li>
+<li><strong>Query Param</strong>: <code>/users?version=1</code> (not recommended)</li>
+<li><strong>Media Type</strong>: <code>application/vnd.dexaminds+json;version=1</code></li>
+</ul>
+<h3 id="2-versioning-best-practices">2. Versioning Best Practices</h3>
+<ul>
+<li>Version early, version often</li>
+<li>Support multiple versions in parallel</li>
+<li>Provide clear deprecation policies</li>
+<li>Document version changes thoroughly</li>
+</ul>
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="1-error-response-format">1. Error Response Format</h3>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;validation_error&quot;,
+    &quot;message&quot;: &quot;One or more validation errors occurred&quot;,
+    &quot;target&quot;: &quot;user_creation&quot;,
+    &quot;details&quot;: [
+      {
+        &quot;code&quot;: &quot;required&quot;,
+        &quot;target&quot;: &quot;email&quot;,
+        &quot;message&quot;: &quot;Email is required&quot;
+      },
+      {
+        &quot;code&quot;: &quot;min_length&quot;,
+        &quot;target&quot;: &quot;password&quot;,
+        &quot;message&quot;: &quot;Password must be at least 8 characters&quot;
+      }
+    ],
+    &quot;innerError&quot;: {
+      &quot;code&quot;: &quot;validation_failed&quot;,
+      &quot;requestId&quot;: &quot;a1b2c3d4&quot;,
+      &quot;timestamp&quot;: &quot;2025-06-30T06:27:45Z&quot;
+    }
+  }
+}
+</code></pre>
+<h3 id="2-http-status-codes">2. HTTP Status Codes</h3>
+<ul>
+<li><strong>2xx</strong>: Success</li>
+<li><strong>4xx</strong>: Client errors</li>
+<li><strong>5xx</strong>: Server errors</li>
+<li>Use specific status codes (e.g., 429 for rate limiting)</li>
+</ul>
+<h2 id="performance">Performance</h2>
+<h3 id="1-caching">1. Caching</h3>
+<ul>
+<li><strong>Client Caching</strong>: <code>Cache-Control</code>, <code>ETag</code>, <code>Last-Modified</code></li>
+<li><strong>Server Caching</strong>: Redis, Memcached</li>
+<li><strong>CDN Caching</strong>: For static assets</li>
+</ul>
+<h3 id="2-pagination">2. Pagination</h3>
+<ul>
+<li><strong>Offset-based</strong>: <code>?page=2&amp;limit=25</code></li>
+<li><strong>Cursor-based</strong>: <code>?after=cursor&amp;limit=25</code></li>
+<li><strong>Keyset Pagination</strong>: <code>?since_id=123&amp;limit=25</code></li>
+</ul>
+<h3 id="3-filtering-sorting">3. Filtering &amp; Sorting</h3>
+<ul>
+<li><strong>Filtering</strong>: <code>?status=active&amp;role=admin</code></li>
+<li><strong>Sorting</strong>: <code>?sort=-created_at,name</code></li>
+<li><strong>Field Selection</strong>: <code>?fields=id,name,email</code></li>
+</ul>
+<h2 id="security">Security</h2>
+<h3 id="1-authentication">1. Authentication</h3>
+<ul>
+<li>OAuth 2.0 with OpenID Connect</li>
+<li>JWT for stateless authentication</li>
+<li>API keys for service-to-service</li>
+<li>MFA for sensitive operations</li>
+</ul>
+<h3 id="2-authorization">2. Authorization</h3>
+<ul>
+<li>Role-Based Access Control (RBAC)</li>
+<li>Attribute-Based Access Control (ABAC)</li>
+<li>Fine-grained permissions</li>
+<li>Policy-based authorization</li>
+</ul>
+<h3 id="3-input-validation">3. Input Validation</h3>
+<ul>
+<li>Validate all input data</li>
+<li>Use allow-listing</li>
+<li>Sanitize output</li>
+<li>Prevent injection attacks</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<h3 id="1-api-reference">1. API Reference</h3>
+<ul>
+<li>Endpoint descriptions</li>
+<li>Request/response examples</li>
+<li>Error codes</li>
+<li>Authentication requirements</li>
+</ul>
+<h3 id="2-interactive-documentation">2. Interactive Documentation</h3>
+<ul>
+<li>Swagger/OpenAPI</li>
+<li>Postman collections</li>
+<li>API explorers</li>
+</ul>
+<h3 id="3-guides-tutorials">3. Guides &amp; Tutorials</h3>
+<ul>
+<li>Getting started</li>
+<li>Authentication</li>
+<li>Common use cases</li>
+<li>Migration guides</li>
+</ul>
+<h2 id="evolution">Evolution</h2>
+<h3 id="1-backward-compatibility">1. Backward Compatibility</h3>
+<ul>
+<li>Add new fields as optional</li>
+<li>Don't remove or rename fields</li>
+<li>Use feature flags</li>
+<li>Version your API</li>
+</ul>
+<h3 id="2-deprecation-policy">2. Deprecation Policy</h3>
+<ul>
+<li>Announce deprecations in advance</li>
+<li>Provide migration guides</li>
+<li>Maintain deprecated versions for a period</li>
+<li>Monitor usage of deprecated endpoints</li>
+</ul>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-design-first">1. Design First</h3>
+<ul>
+<li>Design before implementation</li>
+<li>Use API-first approach</li>
+<li>Get feedback early</li>
+<li>Iterate on design</li>
+</ul>
+<h3 id="2-keep-it-simple-kiss">2. Keep It Simple (KISS)</h3>
+<ul>
+<li>Favor simplicity over complexity</li>
+<li>Follow the principle of least surprise</li>
+<li>Avoid over-engineering</li>
+<li>Make common tasks easy</li>
+</ul>
+<h3 id="3-dont-repeat-yourself-dry">3. Don't Repeat Yourself (DRY)</h3>
+<ul>
+<li>Reuse schemas and components</li>
+<li>Centralize common functionality</li>
+<li>Avoid code duplication</li>
+<li>Use references in OpenAPI/Swagger</li>
+</ul>
+<h3 id="4-you-arent-gonna-need-it-yagni">4. You Aren't Gonna Need It (YAGNI)</h3>
+<ul>
+<li>Implement features when needed</li>
+<li>Avoid speculative generality</li>
+<li>Keep the API surface small</li>
+<li>Focus on current requirements</li>
+</ul>
+<h3 id="5-principle-of-least-privilege">5. Principle of Least Privilege</h3>
+<ul>
+<li>Grant minimum necessary permissions</li>
+<li>Use scopes for OAuth</li>
+<li>Implement proper access controls</li>
+<li>Audit permissions regularly</li>
+</ul>
+<h3 id="6-fail-fast-fail-loudly">6. Fail Fast, Fail Loudly</h3>
+<ul>
+<li>Validate early</li>
+<li>Provide clear error messages</li>
+<li>Don't hide errors</li>
+<li>Log failures appropriately</li>
+</ul>
+<h2 id="anti-patterns-to-avoid">Anti-Patterns to Avoid</h2>
+<h3 id="1-over-fetchingunder-fetching">1. Over-fetching/Under-fetching</h3>
+<ul>
+<li><strong>Problem</strong>: Getting too much or too little data</li>
+<li><strong>Solution</strong>: Use field selection and sparse fieldsets</li>
+</ul>
+<h3 id="2-chatty-apis">2. Chatty APIs</h3>
+<ul>
+<li><strong>Problem</strong>: Too many round-trips</li>
+<li><strong>Solution</strong>: Batch requests or use GraphQL</li>
+</ul>
+<h3 id="3-ignoring-caching">3. Ignoring Caching</h3>
+<ul>
+<li><strong>Problem</strong>: Unnecessary load on servers</li>
+<li><strong>Solution</strong>: Implement proper caching headers</li>
+</ul>
+<h3 id="4-ignoring-rate-limiting">4. Ignoring Rate Limiting</h3>
+<ul>
+<li><strong>Problem</strong>: API abuse and DDoS attacks</li>
+<li><strong>Solution</strong>: Implement rate limiting and quotas</li>
+</ul>
+<h3 id="5-poor-error-handling">5. Poor Error Handling</h3>
+<ul>
+<li><strong>Problem</strong>: Unhelpful error messages</li>
+<li><strong>Solution</strong>: Standardized error responses with codes</li>
+</ul>
+<h2 id="api-maturity-model">API Maturity Model</h2>
+<h3 id="level-0-http-as-a-tunnel">Level 0: HTTP as a Tunnel</h3>
+<ul>
+<li>Single POST endpoint</li>
+<li>All actions as parameters</li>
+<li>No REST principles</li>
+</ul>
+<h3 id="level-1-resources">Level 1: Resources</h3>
+<ul>
+<li>Multiple URIs</li>
+<li>Resources as nouns</li>
+<li>Still mostly RPC-style</li>
+</ul>
+<h3 id="level-2-http-verbs">Level 2: HTTP Verbs</h3>
+<ul>
+<li>Proper use of HTTP methods</li>
+<li>Status codes</li>
+<li>Still some RPC endpoints</li>
+</ul>
+<h3 id="level-3-hypermedia-controls">Level 3: Hypermedia Controls</h3>
+<ul>
+<li>HATEOAS</li>
+<li>Discoverable APIs</li>
+<li>Self-documenting</li>
+</ul>
+<h2 id="measuring-api-quality">Measuring API Quality</h2>
+<h3 id="1-performance-metrics">1. Performance Metrics</h3>
+<ul>
+<li>Response time (p50, p95, p99)</li>
+<li>Throughput (requests/second)</li>
+<li>Error rate</li>
+<li>Uptime/availability</li>
+</ul>
+<h3 id="2-developer-experience">2. Developer Experience</h3>
+<ul>
+<li>Time to first successful call</li>
+<li>Documentation quality</li>
+<li>SDK availability</li>
+<li>Community support</li>
+</ul>
+<h3 id="3-business-metrics">3. Business Metrics</h3>
+<ul>
+<li>API adoption rate</li>
+<li>Active developers</li>
+<li>Revenue impact</li>
+<li>Cost per API call</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Designing great APIs requires careful consideration of many factors. By following these principles, you can create APIs that are:</p>
+<ul>
+<li><strong>Intuitive</strong>: Easy to understand and use</li>
+<li><strong>Efficient</strong>: Fast and resource-friendly</li>
+<li><strong>Reliable</strong>: Consistent and available</li>
+<li><strong>Secure</strong>: Protected against threats</li>
+<li><strong>Maintainable</strong>: Easy to evolve over time</li>
+</ul>
+<p>Remember that API design is an iterative process. Continuously gather feedback from your consumers and be prepared to make improvements based on real-world usage patterns.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
